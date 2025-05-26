@@ -1,0 +1,704 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+ 
+local Window = Rayfield:CreateWindow({
+   Name = "👾DDno$ Universal Script👾",
+   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+   LoadingTitle = "DDno$ Universal Hub",
+   LoadingSubtitle = "by Kaze",
+   Theme = "Amethyst", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+ 
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+ 
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Kaze Universal Hub"
+   },
+ 
+   Discord = {
+      Enabled = true, -- Prompt the user to join your Discord server if their executor supports it
+      Invite = "https://discord.gg/G4FAR7cWWy", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+      RememberJoins = false -- Set this to false to make them join the discord every time they load it up
+   },
+ 
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "DDno$ Key System",
+      Subtitle = "Key System",
+      Note = "Join The Discord https://discord.gg/G4FAR7cWWy", -- Use this to tell the user how to get a key
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"https://pastebin.com/raw/vrHCqCe2"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+ 
+local MainTab = Window:CreateTab("🏠Home", nil) -- Title, Image
+local Mainsection = MainTab:CreateSection("Main")
+ 
+Rayfield:Notify({
+   Title = "Executed successfully",
+   Content = "Kaze universal",
+   Duration = 6.5,
+   Image = nil,
+})
+ 
+local Button = MainTab:CreateButton({
+   Name = "Infnite Jump",
+   Callback = function()
+   getgenv().infJump = arg
+    _G.infinjump = not _G.infinjum
+    if getgenv().infJump == false then
+        _G.infinjump = false
+    else
+        _G.infinjump = true
+    end
+    if not getgenv().iIIIiIIIIIIiiiIIIII then
+        if _G.infinJumpStarted == nil then
+            _G.infinJumpStarted = true
+            local plr = game:GetService('Players').LocalPlayer
+            local m = plr:GetMouse()
+            m.KeyDown:connect(function(k)
+                if _G.infinjump then
+                    if k:byte() == 32 then
+                    humanoid = game:GetService'Players'.LocalPlayer.Character:FindFirstChildOfClass('Humanoid')
+                    humanoid:ChangeState('Jumping')
+                    wait()
+                    humanoid:ChangeState('Seated')
+                    end
+                    getgenv().iIIIiIIIIIIiiiIIIII = true
+                end
+            end)
+        end
+    end
+   end,
+})
+ 
+local Slider = MainTab:CreateSlider({
+   Name = "Walk Speed",
+   Range = {0, 300},
+   Increment = 1,
+   Suffix = "speed",
+   CurrentValue = 16,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
+   end,
+})
+ 
+local Slider = MainTab:CreateSlider({
+   Name = "Jump Power",
+   Range = {0, 1000},
+   Increment = 50,
+   Suffix = "Jump",
+   CurrentValue = 10,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+       game.Players.LocalPlayer.Character.Humanoid.JumpPower = (Value)
+   end,
+})
+ 
+local Button = MainTab:CreateButton({
+   Name = "ESP",
+   Callback = function()
+ local player = game.Players.LocalPlayer
+local userInputService = game:GetService("UserInputService")
+local teams = game:GetService("Teams")
+local runService = game:GetService("RunService")
+ 
+-- GUI Creation
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
+screenGui.Name = "ESP_Toggle"
+screenGui.ResetOnSpawn = false
+ 
+-- Main Frame (Draggable)
+local frame = Instance.new("Frame")
+frame.Parent = screenGui
+frame.Size = UDim2.new(0, 220, 0, 160)
+frame.Position = UDim2.new(0.5, -110, 0.5, -60)
+frame.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
+frame.BorderSizePixel = 0
+frame.Active = true
+frame.Draggable = true
+ 
+local frameCorner = Instance.new("UICorner")
+frameCorner.CornerRadius = UDim.new(0, 10)
+frameCorner.Parent = frame
+ 
+-- Title Label
+local title = Instance.new("TextLabel")
+title.Parent = frame
+title.Size = UDim2.new(1, 0, 0, 30)
+title.BackgroundColor3 = Color3.fromRGB(35, 35, 45)
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.Font = Enum.Font.GothamBold
+title.TextSize = 16
+title.Text = "🔍 ESP Menu"
+title.TextStrokeTransparency = 0.8
+ 
+-- ESP Toggle Button
+local espButton = Instance.new("TextButton")
+espButton.Parent = frame
+espButton.Size = UDim2.new(0.8, 0, 0, 40)
+espButton.Position = UDim2.new(0.1, 0, 0.4, 0)
+espButton.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+espButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+espButton.Font = Enum.Font.Gotham
+espButton.TextSize = 16
+espButton.Text = "Enable ESP"
+ 
+local buttonCorner = Instance.new("UICorner")
+buttonCorner.CornerRadius = UDim.new(0, 6)
+buttonCorner.Parent = espButton
+ 
+-- Footer Label (Rainbow Text)
+local footerLabel = Instance.new("TextLabel")
+footerLabel.Parent = frame
+footerLabel.Size = UDim2.new(1, 0, 0, 20)
+footerLabel.Position = UDim2.new(0, 0, 0.9, 0)
+footerLabel.BackgroundTransparency = 1
+footerLabel.Font = Enum.Font.GothamBold
+footerLabel.TextSize = 14
+footerLabel.TextStrokeTransparency = 0.5
+footerLabel.Text = "Made by Kaze"
+footerLabel.TextXAlignment = Enum.TextXAlignment.Center
+ 
+local colors = {
+    Color3.fromRGB(255, 0, 0),   -- Red
+    Color3.fromRGB(255, 127, 0), -- Orange
+    Color3.fromRGB(255, 255, 0), -- Yellow
+    Color3.fromRGB(0, 255, 0),   -- Green
+    Color3.fromRGB(0, 0, 255),   -- Blue
+    Color3.fromRGB(75, 0, 130),  -- Indigo
+    Color3.fromRGB(238, 130, 238) -- Violet
+}
+ 
+local currentIndex = 1
+runService.RenderStepped:Connect(function()
+    footerLabel.TextColor3 = colors[currentIndex]
+    currentIndex = currentIndex + 1
+    if currentIndex > #colors then
+        currentIndex = 1
+    end
+end)
+ 
+-- ESP Logic
+local espEnabled = false
+local espObjects = {}
+ 
+local function applyESP(character)
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        local highlight = Instance.new("Highlight")
+        highlight.Parent = character
+        highlight.FillTransparency = 1
+        highlight.OutlineTransparency = 0
+        highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
+ 
+        local billboard = Instance.new("BillboardGui")
+        billboard.Parent = character
+        billboard.Adornee = character:FindFirstChild("Head")
+        billboard.Size = UDim2.new(0, 200, 0, 50)
+        billboard.StudsOffset = Vector3.new(0, 2, 0)
+        billboard.AlwaysOnTop = true
+ 
+        local textLabel = Instance.new("TextLabel")
+        textLabel.Parent = billboard
+        textLabel.Size = UDim2.new(1, 0, 1, 0)
+        textLabel.BackgroundTransparency = 1
+        textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        textLabel.Font = Enum.Font.GothamBold
+        textLabel.TextSize = 14
+        textLabel.TextStrokeTransparency = 0.5
+        textLabel.Text = "Loading..."
+ 
+        espObjects[character] = {highlight, billboard, textLabel}
+    end
+end
+ 
+local function updateESP()
+    for _, plr in pairs(game.Players:GetPlayers()) do
+        if plr ~= player and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
+            local char = plr.Character
+            local rootPart = char:FindFirstChild("HumanoidRootPart")
+            local humanoid = char:FindFirstChild("Humanoid")
+            local espData = espObjects[char]
+ 
+            if rootPart and humanoid and espData then
+                local distance = (rootPart.Position - player.Character.HumanoidRootPart.Position).Magnitude
+                local teamName = plr.Team and plr.Team.Name or "No Team"
+                local health = math.floor(humanoid.Health)
+                local maxHealth = math.floor(humanoid.MaxHealth)
+                espData[3].Text = string.format("%s | %.1fm | %d/%d HP | %s", teamName, distance, health, maxHealth, plr.Name)
+            end
+        end
+    end
+end
+ 
+local function refreshESP()
+    for _, data in pairs(espObjects) do
+        for _, obj in pairs(data) do
+            obj:Destroy()
+        end
+    end
+    espObjects = {}
+ 
+    for _, plr in pairs(game.Players:GetPlayers()) do
+        if plr ~= player and plr.Character then
+            applyESP(plr.Character)
+        end
+    end
+end
+ 
+local function toggleESP()
+    espEnabled = not espEnabled
+    espButton.Text = espEnabled and "Disable ESP" or "Enable ESP"
+ 
+    if espEnabled then
+        refreshESP()
+        runService.RenderStepped:Connect(function()
+            if espEnabled then
+                updateESP()
+            end
+        end)
+    else
+        for _, data in pairs(espObjects) do
+            for _, obj in pairs(data) do
+                obj:Destroy()
+            end
+        end
+        espObjects = {}
+    end
+end
+ 
+espButton.MouseButton1Click:Connect(toggleESP)
+ 
+   end,
+})
+ 
+local PlayerTab = Window:CreateTab("🧍Player", nil) -- Title, Image
+ 
+local Button = PlayerTab:CreateButton({
+   Name = "Fly (F to toggle)",
+   Callback = function()
+local Players = game:GetService("Players")
+local UIS = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+ 
+local player = Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local root = character:WaitForChild("HumanoidRootPart")
+ 
+local flying = false
+local speed = 100 -- High-speed flight
+local bodyGyro, bodyVelocity
+local connection
+ 
+-- Fly start function
+local function startFly()
+	if flying then return end
+	flying = true
+ 
+	bodyGyro = Instance.new("BodyGyro")
+	bodyGyro.P = 1e6
+	bodyGyro.MaxTorque = Vector3.new(1e9, 1e9, 1e9)
+	bodyGyro.CFrame = root.CFrame
+	bodyGyro.Parent = root
+ 
+	bodyVelocity = Instance.new("BodyVelocity")
+	bodyVelocity.Velocity = Vector3.zero
+	bodyVelocity.MaxForce = Vector3.new(1e9, 1e9, 1e9)
+	bodyVelocity.Parent = root
+ 
+	connection = RunService.RenderStepped:Connect(function()
+		if not flying then return end
+ 
+		local cam = workspace.CurrentCamera
+		local direction = Vector3.zero
+ 
+		if UIS:IsKeyDown(Enum.KeyCode.W) then
+			direction += cam.CFrame.LookVector
+		end
+		if UIS:IsKeyDown(Enum.KeyCode.S) then
+			direction -= cam.CFrame.LookVector
+		end
+		if UIS:IsKeyDown(Enum.KeyCode.A) then
+			direction -= cam.CFrame.RightVector
+		end
+		if UIS:IsKeyDown(Enum.KeyCode.D) then
+			direction += cam.CFrame.RightVector
+		end
+		if UIS:IsKeyDown(Enum.KeyCode.Space) then
+			direction += cam.CFrame.UpVector
+		end
+		if UIS:IsKeyDown(Enum.KeyCode.LeftShift) then
+			direction -= cam.CFrame.UpVector
+		end
+ 
+		if direction.Magnitude > 0 then
+			bodyVelocity.Velocity = direction.Unit * speed
+		else
+			bodyVelocity.Velocity = Vector3.zero
+		end
+ 
+		bodyGyro.CFrame = cam.CFrame
+	end)
+end
+ 
+-- Fly stop function
+local function stopFly()
+	flying = false
+	if bodyGyro then bodyGyro:Destroy() end
+	if bodyVelocity then bodyVelocity:Destroy() end
+	if connection then connection:Disconnect() end
+end
+ 
+-- Toggle fly with "F"
+UIS.InputBegan:Connect(function(input, gameProcessed)
+	if gameProcessed then return end
+	if input.KeyCode == Enum.KeyCode.F then
+		if flying then
+			stopFly()
+		else
+			startFly()
+		end
+	end
+end)
+ 
+   end,
+})
+ 
+local Button = PlayerTab:CreateButton({
+   Name = "Touch Fling",
+   Callback = function()
+ 
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/0Ben1/fe/main/obf_5wpM7bBcOPspmX7lQ3m75SrYNWqxZ858ai3tJdEAId6jSI05IOUB224FQ0VSAswH.lua.txt'),true))()
+   end,
+})
+ 
+local MiscTab = Window:CreateTab("👾Misc", nil) -- Title, Image
+ 
+local Button = MiscTab:CreateButton({
+   Name = "Anti-Afk",
+   Callback = function()
+        wait(0.5)
+local Main = Instance.new("ScreenGui")
+local Title = Instance.new("TextLabel")
+local MainFrame = Instance.new("Frame")
+local EndTItle = Instance.new("TextLabel")
+local AfkStatus = Instance.new("TextLabel")
+ 
+Main.Parent = game.CoreGui
+ 
+Main.ZIndexBehavior = Enum.ZIndexBehavior.Sibling;
+ 
+Title.Parent = Main;
+ 
+Title.Active = true
+Title.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Title.BorderColor3 = Color3.fromRGB(0, 0, 255)
+Title.Draggable = true
+Title.Position = UDim2.new(0.698610067, 0, 0.098096624, 0)
+Title.Size = UDim2.new(0, 370, 0, 52)
+Title.Font = Enum.Font.SourceSansBold;
+Title.Text = "Anti Afk | by KAZE"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 22;
+ 
+MainFrame.Parent = Title
+ 
+MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 255)
+MainFrame.Position = UDim2.new(0, 0, 1.0192306, 0)
+MainFrame.Size = UDim2.new(0, 370, 0, 107)
+ 
+EndTItle.Parent = MainFrame
+EndTItle.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+EndTItle.BorderColor3 = Color3.fromRGB(0, 0, 255)
+EndTItle.Position = UDim2.new(0, 0, 0.800455689, 0)
+EndTItle.Size = UDim2.new(0, 370, 0, 21)
+EndTItle.Font = Enum.Font.SourceSansBold;
+EndTItle.Text = "RemiAPE"
+EndTItle.TextColor3 = Color3.fromRGB(255, 255, 255)
+EndTItle.TextSize = 20;
+ 
+AfkStatus.Parent = MainFrame
+ 
+AfkStatus.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+AfkStatus.BorderColor3 = Color3.fromRGB(0, 0, 255)
+AfkStatus.Position = UDim2.new(0, 0, 0.158377, 0)
+AfkStatus.Size = UDim2.new(0, 370, 0 ,44)
+AfkStatus.Font = Enum.Font.SourceSansBold;
+AfkStatus.Text = "Anti Afk Status: Active"
+AfkStatus.TextColor3 = Color3.fromRGB(255, 255, 255)
+AfkStatus.TextSize = 20;
+ 
+local abc = game:service'VirtualUser'
+ 
+game:service'Players'.LocalPlayer.Idled:connect(function()
+ 
+    AfkStatus:CaptureController()
+    AfkStatus:ClickButton2(Vector2.new())
+ 
+    AfkStatus.Text = "Roblox Tried To Kick You."
+    wait(2)
+    AfkStatus.Text = "Anti Afk Status: Active"
+end)    
+   end,
+})
+ 
+local GameTab = Window:CreateTab("🕹️Games", nil) -- Title, Image
+ 
+local Button = GameTab:CreateButton({
+   Name = "Infnite-yeild",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+   end,
+})
+ 
+local Button = GameTab:CreateButton({
+   Name = "Grow-A-Garden",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/GrowaGarden", true))()
+   end,
+})
+ 
+local Button = GameTab:CreateButton({
+   Name = "Chat-Bypasser (risky)",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/AnnaRoblox/AnnaBypasser/refs/heads/main/AnnaBypasser.lua",true))()
+   end,
+})
+ 
+local Button = GameTab:CreateButton({
+   Name = "MM2",
+   Callback = function()
+       loadstring(game:GetObjects("rbxassetid://4001118261")[1].Source)()
+   end,
+})
+ 
+local Button = GameTab:CreateButton({
+   Name = "Skinwalkers",
+   Callback = function()
+   loadstring(game:HttpGet('https://raw.githubusercontent.com/YJ557915/honk/fdd1da21970801c2b00e35cd6887379ab05cf594/M.A.R'))()
+   end,
+})
+ 
+local Button = GameTab:CreateButton({
+   Name = "Dead-Rails",
+   Callback = function()
+   loadstring(game:HttpGet('https://raw.githubusercontent.com/m00ndiety/Auto-win-Keyless-/refs/heads/main/obf_Dead_Rails_Auto_Win_Farm_GUI.lua.txt'))()
+   end,
+})
+ 
+local Button = GameTab:CreateButton({
+   Name = "Rivals",
+   Callback = function()
+       loadstring(game:HttpGet(('https://raw.githubusercontent.com/blackowl1231/ZYPHERION/refs/heads/main/main.lua')))()
+   end,
+})
+ 
+local Button = GameTab:CreateButton({
+   Name = "Blade-Ball",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/redopy7/Blade-Ball/refs/heads/main/KalitorBeta.txt"))()
+   end,
+})
+ 
+local Button = GameTab:CreateButton({
+   Name = "Auto-piano",
+   Callback = function()
+       pcall(function()loadstring(game:HttpGet("https://raw.githubusercontent.com/hellohellohell012321/TALENTLESS/main/TALENTLESS", true))()
+end)
+   end,
+})
+ 
+local Button = GameTab:CreateButton({
+   Name = "Fisch",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+   end,
+})
+ 
+local Button = GameTab:CreateButton({
+   Name = "Blue-Lock-Rivals",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/game/refs/heads/main/TbaoHubBlueLockRivals"))()
+   end,
+})
+ 
+local Button = GameTab:CreateButton({
+   Name = "Bed-Wars",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VWRewrite/main/NewMainScript.lua", true))()
+   end,
+})
+ 
+local Button = GameTab:CreateButton({
+   Name = "Murders-VS-Sheriff",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubMurdervssheriff"))()
+   end,
+})
+ 
+local Button = GameTab:CreateButton({
+   Name = "Arise-Crossover",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/AriseCrossover"))()
+   end,
+})
+ 
+local Button = GameTab:CreateButton({
+   Name = "Funki-Friday",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Nadir3709/ScriptHub/main/Loader"))()
+   end,
+})
+ 
+local Button = GameTab:CreateButton({
+   Name = "Hide-And-Seek",
+   Callback = function()
+       loadstring(game:HttpGet("https://pastebin.com/raw/F4xYCF5v", true))()
+   end,
+})
+ 
+local Button = GameTab:CreateButton({
+   Name = "Bubble-Gum-Sim",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/vertex-peak/vertex/refs/heads/main/loadstring"))()
+   end,
+})
+ 
+local Button = GameTab:CreateButton({
+   Name = "BrookHaven",
+   Callback = function()
+   loadstring(game:HttpGet("https://scriptblox.com/raw/Brookhaven-RP-R4D-TROLL-NO-KEY-17625"))()
+   end,
+})
+ 
+local Button = GameTab:CreateButton({
+   Name = "Da-Hood",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/Actyrn/Scripts/main/AzureModded"))()
+   end,
+})
+ 
+local Button = GameTab:CreateButton({
+   Name = "Grow-A-Fish-Pond",
+   Callback = function()
+       loadstring(game:HttpGet("https://github.com/alyssagithub/Scripts/raw/main/FrostByte/Initiate.lua"))()
+   end,
+})
+ 
+local Button = GameTab:CreateButton({
+   Name = "Spelling-Bee",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/PreppyHub/PreppyHub/refs/heads/main/PreppyHub"))()
+   end,
+})
+ 
+local Button = PlayerTab:CreateButton({
+   Name = "No-Clip (N to toggle)",
+   Callback = function()
+   -- Put this in a LocalScript (e.g., StarterPlayerScripts)
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+ 
+local player = Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+ 
+local noclip = false
+ 
+-- Toggle noclip state
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+	if gameProcessed then return end
+ 
+	if input.KeyCode == Enum.KeyCode.N then
+		noclip = not noclip
+		print("Noclip:", noclip and "ON" or "OFF")
+	end
+end)
+ 
+-- Constantly update parts' collision
+RunService.Stepped:Connect(function()
+	if not character or not character:FindFirstChild("HumanoidRootPart") then return end
+ 
+	if noclip then
+		for _, part in pairs(character:GetDescendants()) do
+			if part:IsA("BasePart") and part.CanCollide then
+				part.CanCollide = false
+			end
+		end
+	else
+		for _, part in pairs(character:GetDescendants()) do
+			if part:IsA("BasePart") and not part.CanCollide then
+				part.CanCollide = true
+			end
+		end
+	end
+end)
+ 
+   end,
+})
+ 
+local Button = MiscTab:CreateButton({
+   Name = "Anti-Void",
+   Callback = function()
+   local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+ 
+local player = Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local rootPart = character:WaitForChild("HumanoidRootPart")
+ 
+-- Set a safe teleport position
+local safePosition = Vector3.new(0, 10, 0) -- Change to your spawn or platform location
+local voidY = -50 -- Void level threshold
+ 
+-- Monitor character position
+RunService.Heartbeat:Connect(function()
+	if rootPart and rootPart.Position.Y < voidY then
+		rootPart.Velocity = Vector3.zero -- Stop downward momentum
+		rootPart.CFrame = CFrame.new(safePosition) -- Teleport back to safety
+	end
+end)
+ 
+-- Handle respawn
+player.CharacterAdded:Connect(function(char)
+	character = char
+	rootPart = char:WaitForChild("HumanoidRootPart")
+end)
+   end,
+})
+
+local AdminTab = Window:CreateTab("🛠️Admin", nil) -- Title, Image
+
+local Button = AdminTab:CreateButton({
+   Name = "Infnite-yield",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+   end,
+})
+
+local Button = AdminTab:CreateButton({
+   Name = "Nameless-Admin",
+   Callback = function()
+       loadstring(game:HttpGet('https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source'))()
+   end,
+})
+
+local Button = MiscTab:CreateButton({
+   Name = "VC-Ban-Bypass",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/EnterpriseExperience/SystemBroken/refs/heads/main/source"))()
+   end,
+})
+
+local Button = GameTab:CreateButton({
+   Name = "MM2-Better",
+   Callback = function()
+      loadstring(game:HttpGet('https://raw.githubusercontent.com/vertex-peak/vertex/refs/heads/main/loadstring'))()
+   end,
+})

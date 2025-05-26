@@ -1,0 +1,1997 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "EXP HUB",
+   LoadingTitle = "EXP HUB",
+   LoadingSubtitle = "by EXP Squad's",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "EXP Hub"
+   },
+   Discord = {
+      Enabled = true,
+      Invite = "Fdb2dxqJrs", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true, -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "EXP Hub",
+      Subtitle = "EXP Hub Key System",
+      Note = "Join the Discord to get the key. Discord.gg/Fdb2dxqJrs",
+      FileName = "sigma rizz gyat file", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"https://pastebin.com/raw/41Dxjsvm"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local MiscTab = Window:CreateTab("Universal", nil) -- Title, Image
+local MainSection = MiscTab:CreateSection("Universal Scripts.")
+
+local MainTab = Window:CreateTab("Arsenal", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("Many Scripts, And Hubs For Arsenal.")
+
+local MM2Tab = Window:CreateTab("Murder Mystery 2", nil) -- Title, Image
+local MainSection = MM2Tab:CreateSection("Murder Mystery 2 Scripts.")
+
+Rayfield:Notify({
+   Title = "Thanks For Using EXP Hub",
+   Content = "Thanks Rayfield UI",
+   Duration = 3,
+   Image = nil,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Ok!",
+         Callback = function()
+            print("EXP HUB")
+         end
+      }
+   },
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Void Hub",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/VoidzyScripter/VoidHub-/main/Source%20Code"))();
+   end,
+})
+
+local CombatWarriorsTab = Window:CreateTab("Combat Warriors", nil) -- Title, Image
+local MainSection = CombatWarriorsTab:CreateSection("C.W Scripts.")
+
+local Button = MainTab:CreateButton({
+   Name = "Quotas Hub",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Insertl/QuotasHub/main/BETAv1.3"))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Silent Aim Gui",
+   Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/iFDUTWfp"))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Leg Hub",
+   Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/G6Ubkkuv"))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Enlarge Hitboxes",
+   Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/GcS8ZsFZ"))()
+   end,
+})
+
+local Button = MiscTab:CreateButton({
+   Name = "Infinite Yield",
+   Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+   end,
+})
+
+local Button = MiscTab:CreateButton({
+   Name = "Infinite Jump",
+   Callback = function()
+        _G.infinjump = not _G.infinjump
+
+if _G.infinJumpStarted == nil then
+	--Ensures this only runs once to save resources
+	_G.infinJumpStarted = true
+
+	--The actual infinite jump
+	local plr = game:GetService('Players').LocalPlayer
+	local m = plr:GetMouse()
+	m.KeyDown:connect(function(k)
+		if _G.infinjump then
+			if k:byte() == 32 then
+			humanoid = game:GetService'Players'.LocalPlayer.Character:FindFirstChildOfClass('Humanoid')
+			humanoid:ChangeState('Jumping')
+			wait()
+			humanoid:ChangeState('Seated')
+			end
+		end
+	end)
+end
+   end,
+})
+
+local Slider = MiscTab:CreateSlider({
+   Name = "WalkSpeed Slider",
+   Range = {1, 500},
+   Increment = 1,
+   Suffix = "Speed",
+   CurrentValue = 16,
+   Flag = "sliderws", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
+   end,
+})
+
+local Button = CombatWarriorsTab:CreateButton({
+   Name = "Head Hitbox Expander",
+   Callback = function()
+        _G.HeadSize = 10
+_G.Disabled = true
+game:GetService('RunService').RenderStepped:connect(function()
+if _G.Disabled then
+for i,v in next, game:GetService('Players'):GetPlayers() do
+if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+pcall(function()
+v.Character.Head.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+v.Character.Head.Transparency = 1
+v.Character.Head.BrickColor = BrickColor.new("Red")
+v.Character.Head.Material = "Neon"
+v.Character.Head.CanCollide = false
+v.Character.Head.Massless = true
+end)
+end
+end
+end
+end)
+   end,
+})
+
+local BladeBallTab = Window:CreateTab("Blade Ball", nil) -- Title, Image
+local MainSection = BladeBallTab:CreateSection("Some Scripts For Blade Ball.")
+
+local Button = BladeBallTab:CreateButton({
+   Name = "FFJ Hub",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/FFJ1/Roblox-Exploits/main/scripts/BladeBallV3.lua"))()
+   end,
+})
+
+local Button = BladeBallTab:CreateButton({
+   Name = "Triple Hub Keyless",
+   Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/2FtphmKi"))()
+   end,
+})
+
+local Button = CombatWarriorsTab:CreateButton({
+   Name = "Bad Aimbot",
+   Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/utHyEcbk"))()
+   end,
+})
+
+local Button = CombatWarriorsTab:CreateButton({
+   Name = "Money Hub",
+   Callback = function()
+        local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("money scripts combat", "BloodTheme")
+
+local Tab = Window:NewTab("Main")
+local Tab1 = Window:NewTab("Credits")
+
+local Section = Tab:NewSection("Combat warriors")
+local Section1 = Tab1:NewSection("credits")
+
+Section:NewButton("Big hitbox", "ButtonInfo", function()
+local HeadSize = 20
+local Disabled = true
+
+game:GetService('RunService').RenderStepped:Connect(function()
+    if Disabled then
+        for _, player in ipairs(game:GetService('Players'):GetPlayers()) do
+            if player ~= game:GetService('Players').LocalPlayer then
+                pcall(function()
+                    local character = player.Character
+                    if character and character:FindFirstChild("Head") then
+                        local head = character.Head
+                        head.Size = Vector3.new(HeadSize, HeadSize, HeadSize)
+                        head.Transparency = 1
+                        head.BrickColor = BrickColor.new("Really red")
+                        head.Material = Enum.Material.Wood
+                        head.CanCollide = false
+                        head.Massless = true
+                    end
+                end)
+            end
+        end
+    end
+end)
+end)
+
+Section:NewButton("Speedbypass full flash", "ButtonInfo", function()
+    function isNumber(str)
+
+  if tonumber(str) ~= nil or str == 'inf' then
+
+    return true
+
+  end
+
+end
+
+local tspeed = 0.3
+
+local hb = game:GetService("RunService").Heartbeat
+
+local tpwalking = true
+
+local player = game:GetService("Players")
+
+local lplr = player.LocalPlayer
+
+local chr = lplr.Character
+
+local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+
+while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+
+  if hum.MoveDirection.Magnitude > 0 then
+
+    if tspeed and isNumber(tspeed) then
+
+      chr:TranslateBy(hum.MoveDirection * tonumber(tspeed))
+
+    else
+
+      chr:TranslateBy(hum.MoveDirection)
+
+    end
+
+  end
+
+end
+end)
+
+Section1:NewLabel("Huge credits to proxigoat for making the script")
+Section1:NewLabel("credits to mezzo for the script :D")
+   end,
+})
+
+local Button = MiscTab:CreateButton({
+   Name = "Unnamed Esp",
+   Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/ic3w0lf22/Unnamed-ESP/master/UnnamedESP.lua'))()
+   end,
+})
+
+local Button = MiscTab:CreateButton({
+   Name = "Sky Hub",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/FE%20Trolling%20GUI.luau"))()
+   end,
+})
+
+local Button = MiscTab:CreateButton({
+   Name = "Fling All",
+   Callback = function()
+        local Targets = {"All"} -- "All", "Target Name", "arian_was_here"
+
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+
+local AllBool = false
+
+local GetPlayer = function(Name)
+    Name = Name:lower()
+    if Name == "all" or Name == "others" then
+        AllBool = true
+        return
+    elseif Name == "random" then
+        local GetPlayers = Players:GetPlayers()
+        if table.find(GetPlayers,Player) then table.remove(GetPlayers,table.find(GetPlayers,Player)) end
+        return GetPlayers[math.random(#GetPlayers)]
+    elseif Name ~= "random" and Name ~= "all" and Name ~= "others" then
+        for _,x in next, Players:GetPlayers() do
+            if x ~= Player then
+                if x.Name:lower():match("^"..Name) then
+                    return x;
+                elseif x.DisplayName:lower():match("^"..Name) then
+                    return x;
+                end
+            end
+        end
+    else
+        return
+    end
+end
+
+local Message = function(_Title, _Text, Time)
+    game:GetService("StarterGui"):SetCore("SendNotification", {Title = _Title, Text = _Text, Duration = Time})
+end
+
+local SkidFling = function(TargetPlayer)
+    local Character = Player.Character
+    local Humanoid = Character and Character:FindFirstChildOfClass("Humanoid")
+    local RootPart = Humanoid and Humanoid.RootPart
+
+    local TCharacter = TargetPlayer.Character
+    local THumanoid
+    local TRootPart
+    local THead
+    local Accessory
+    local Handle
+
+    if TCharacter:FindFirstChildOfClass("Humanoid") then
+        THumanoid = TCharacter:FindFirstChildOfClass("Humanoid")
+    end
+    if THumanoid and THumanoid.RootPart then
+        TRootPart = THumanoid.RootPart
+    end
+    if TCharacter:FindFirstChild("Head") then
+        THead = TCharacter.Head
+    end
+    if TCharacter:FindFirstChildOfClass("Accessory") then
+        Accessory = TCharacter:FindFirstChildOfClass("Accessory")
+    end
+    if Accessoy and Accessory:FindFirstChild("Handle") then
+        Handle = Accessory.Handle
+    end
+
+    if Character and Humanoid and RootPart then
+        if RootPart.Velocity.Magnitude < 50 then
+            getgenv().OldPos = RootPart.CFrame
+        end
+        if THumanoid and THumanoid.Sit and not AllBool then
+            return Message("Error Occurred", "Targeting is sitting", 5) -- u can remove dis part if u want lol
+        end
+        if THead then
+            workspace.CurrentCamera.CameraSubject = THead
+        elseif not THead and Handle then
+            workspace.CurrentCamera.CameraSubject = Handle
+        elseif THumanoid and TRootPart then
+            workspace.CurrentCamera.CameraSubject = THumanoid
+        end
+        if not TCharacter:FindFirstChildWhichIsA("BasePart") then
+            return
+        end
+        
+        local FPos = function(BasePart, Pos, Ang)
+            RootPart.CFrame = CFrame.new(BasePart.Position) * Pos * Ang
+            Character:SetPrimaryPartCFrame(CFrame.new(BasePart.Position) * Pos * Ang)
+            RootPart.Velocity = Vector3.new(9e7, 9e7 * 10, 9e7)
+            RootPart.RotVelocity = Vector3.new(9e8, 9e8, 9e8)
+        end
+        
+        local SFBasePart = function(BasePart)
+            local TimeToWait = 2
+            local Time = tick()
+            local Angle = 0
+
+            repeat
+                if RootPart and THumanoid then
+                    if BasePart.Velocity.Magnitude < 50 then
+                        Angle = Angle + 100
+
+                        FPos(BasePart, CFrame.new(0, 1.5, 0) + THumanoid.MoveDirection * BasePart.Velocity.Magnitude / 1.25, CFrame.Angles(math.rad(Angle),0 ,0))
+                        task.wait()
+
+                        FPos(BasePart, CFrame.new(0, -1.5, 0) + THumanoid.MoveDirection * BasePart.Velocity.Magnitude / 1.25, CFrame.Angles(math.rad(Angle), 0, 0))
+                        task.wait()
+
+                        FPos(BasePart, CFrame.new(2.25, 1.5, -2.25) + THumanoid.MoveDirection * BasePart.Velocity.Magnitude / 1.25, CFrame.Angles(math.rad(Angle), 0, 0))
+                        task.wait()
+
+                        FPos(BasePart, CFrame.new(-2.25, -1.5, 2.25) + THumanoid.MoveDirection * BasePart.Velocity.Magnitude / 1.25, CFrame.Angles(math.rad(Angle), 0, 0))
+                        task.wait()
+
+                        FPos(BasePart, CFrame.new(0, 1.5, 0) + THumanoid.MoveDirection,CFrame.Angles(math.rad(Angle), 0, 0))
+                        task.wait()
+
+                        FPos(BasePart, CFrame.new(0, -1.5, 0) + THumanoid.MoveDirection,CFrame.Angles(math.rad(Angle), 0, 0))
+                        task.wait()
+                    else
+                        FPos(BasePart, CFrame.new(0, 1.5, THumanoid.WalkSpeed), CFrame.Angles(math.rad(90), 0, 0))
+                        task.wait()
+
+                        FPos(BasePart, CFrame.new(0, -1.5, -THumanoid.WalkSpeed), CFrame.Angles(0, 0, 0))
+                        task.wait()
+
+                        FPos(BasePart, CFrame.new(0, 1.5, THumanoid.WalkSpeed), CFrame.Angles(math.rad(90), 0, 0))
+                        task.wait()
+                        
+                        FPos(BasePart, CFrame.new(0, 1.5, TRootPart.Velocity.Magnitude / 1.25), CFrame.Angles(math.rad(90), 0, 0))
+                        task.wait()
+
+                        FPos(BasePart, CFrame.new(0, -1.5, -TRootPart.Velocity.Magnitude / 1.25), CFrame.Angles(0, 0, 0))
+                        task.wait()
+
+                        FPos(BasePart, CFrame.new(0, 1.5, TRootPart.Velocity.Magnitude / 1.25), CFrame.Angles(math.rad(90), 0, 0))
+                        task.wait()
+
+                        FPos(BasePart, CFrame.new(0, -1.5, 0), CFrame.Angles(math.rad(90), 0, 0))
+                        task.wait()
+
+                        FPos(BasePart, CFrame.new(0, -1.5, 0), CFrame.Angles(0, 0, 0))
+                        task.wait()
+
+                        FPos(BasePart, CFrame.new(0, -1.5 ,0), CFrame.Angles(math.rad(-90), 0, 0))
+                        task.wait()
+
+                        FPos(BasePart, CFrame.new(0, -1.5, 0), CFrame.Angles(0, 0, 0))
+                        task.wait()
+                    end
+                else
+                    break
+                end
+            until BasePart.Velocity.Magnitude > 500 or BasePart.Parent ~= TargetPlayer.Character or TargetPlayer.Parent ~= Players or not TargetPlayer.Character == TCharacter or THumanoid.Sit or Humanoid.Health <= 0 or tick() > Time + TimeToWait
+        end
+        
+        workspace.FallenPartsDestroyHeight = 0/0
+        
+        local BV = Instance.new("BodyVelocity")
+        BV.Name = "EpixVel"
+        BV.Parent = RootPart
+        BV.Velocity = Vector3.new(9e8, 9e8, 9e8)
+        BV.MaxForce = Vector3.new(1/0, 1/0, 1/0)
+        
+        Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated, false)
+        
+        if TRootPart and THead then
+            if (TRootPart.CFrame.p - THead.CFrame.p).Magnitude > 5 then
+                SFBasePart(THead)
+            else
+                SFBasePart(TRootPart)
+            end
+        elseif TRootPart and not THead then
+            SFBasePart(TRootPart)
+        elseif not TRootPart and THead then
+            SFBasePart(THead)
+        elseif not TRootPart and not THead and Accessory and Handle then
+            SFBasePart(Handle)
+        else
+            return Message("Error Occurred", "Target is missing everything", 5)
+        end
+        
+        BV:Destroy()
+        Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated, true)
+        workspace.CurrentCamera.CameraSubject = Humanoid
+        
+        repeat
+            RootPart.CFrame = getgenv().OldPos * CFrame.new(0, .5, 0)
+            Character:SetPrimaryPartCFrame(getgenv().OldPos * CFrame.new(0, .5, 0))
+            Humanoid:ChangeState("GettingUp")
+            table.foreach(Character:GetChildren(), function(_, x)
+                if x:IsA("BasePart") then
+                    x.Velocity, x.RotVelocity = Vector3.new(), Vector3.new()
+                end
+            end)
+            task.wait()
+        until (RootPart.Position - getgenv().OldPos.p).Magnitude < 25
+        workspace.FallenPartsDestroyHeight = getgenv().FPDH
+    else
+        return Message("Error Occurred", "Random error", 5)
+    end
+end
+
+if not Welcome then Message("Script by EXP SQUAD'S", "Enjoy!", 5) end
+getgenv().Welcome = true
+if Targets[1] then for _,x in next, Targets do GetPlayer(x) end else return end
+
+if AllBool then
+    for _,x in next, Players:GetPlayers() do
+        SkidFling(x)
+    end
+end
+
+for _,x in next, Targets do
+    if GetPlayer(x) and GetPlayer(x) ~= Player then
+        if GetPlayer(x).UserId ~= 1414978355 then
+            local TPlayer = GetPlayer(x)
+            if TPlayer then
+                SkidFling(TPlayer)
+            end
+        else
+            Message("Error Occurred", "This user is whitelisted! (Owner)", 5)
+        end
+    elseif not GetPlayer(x) and not AllBool then
+        Message("Error Occurred", "Username Invalid", 5)
+    end
+end
+   end,
+})
+
+local Button = MiscTab:CreateButton({
+   Name = "RGB ESP",
+   Callback = function()
+       -- RGB ESP Highlight Script for Solara
+
+-- Function to create the ESP highlight
+local function createESP(character, localPlayer)
+    if not character then
+        warn("no worky :(")
+        return
+    end
+
+    -- Creates a highlight instance
+    local highlight = Instance.new("Highlight")
+    highlight.Name = "ESP"
+    highlight.Adornee = character
+    highlight.FillTransparency = 0.5
+    highlight.OutlineTransparency = 0.2
+    highlight.Parent = game.CoreGui
+
+    -- Creates a BillboardGui for the player's name and distance
+    local billboardGui = Instance.new("BillboardGui")
+    billboardGui.Name = "ESPName"
+    billboardGui.Adornee = character:FindFirstChild("Head")
+    billboardGui.Size = UDim2.new(0, 200, 0, 50)
+    billboardGui.StudsOffset = Vector3.new(0, 2, 0)
+    billboardGui.AlwaysOnTop = true
+    billboardGui.MaxDistance = 100
+    billboardGui.Parent = game.CoreGui
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Size = UDim2.new(1, 0, 0.5, 0)
+    textLabel.BackgroundTransparency = 1
+    textLabel.TextColor3 = Color3.new(1, 1, 1)
+    textLabel.TextStrokeTransparency = 0
+    textLabel.TextScaled = true
+    textLabel.Text = character.Name
+    textLabel.Parent = billboardGui
+
+    local distanceLabel = Instance.new("TextLabel")
+    distanceLabel.Size = UDim2.new(1, 0, 0.5, 0)
+    distanceLabel.Position = UDim2.new(0, 0, 0.5, 0)
+    distanceLabel.BackgroundTransparency = 1
+    distanceLabel.TextColor3 = Color3.new(1, 1, 1)
+    distanceLabel.TextStrokeTransparency = 0
+    distanceLabel.TextScaled = true
+    distanceLabel.Parent = billboardGui
+
+    -- Function to update distance
+    local function updateDistance()
+        while character.Parent and billboardGui.Parent do
+            local distance = (localPlayer.Character.HumanoidRootPart.Position - character.HumanoidRootPart.Position).magnitude
+            distanceLabel.Text = string.format("Distance: %.2f", distance)
+            wait(0.00000000000000000000000000000000000000001)
+        end
+    end
+
+    -- Function to cycle RGB colors
+    local function rgbCycle()
+        local hue = 0
+        while highlight.Parent and billboardGui.Parent do
+            hue = hue + 1
+            if hue > 360 then hue = 0 end
+            local color = Color3.fromHSV(hue / 360, 1, 1)
+            highlight.FillColor = color
+            highlight.OutlineColor = color
+            textLabel.TextColor3 = color
+            distanceLabel.TextColor3 = color
+            wait(0.00000000000000000000000000000000000000001)
+        end
+    end
+
+    -- Spawn RGB cycle and distance update
+    spawn(rgbCycle)
+    spawn(updateDistance)
+
+    -- Listen for character removal to remove ESP
+    local function onCharacterRemoving()
+        highlight:Destroy()
+        billboardGui:Destroy()
+    end
+
+    character.AncestryChanged:Connect(function(_, parent)
+        if not parent then
+            onCharacterRemoving()
+        end
+    end)
+end
+
+-- Function to handle player resetting
+local function handlePlayerReset(localPlayer)
+    -- Remove all existing ESP and GUIs
+    for _, obj in ipairs(game.CoreGui:GetChildren()) do
+        if obj.Name == "ESP" or obj.Name == "ESPName" then
+            obj:Destroy()
+        end
+    end
+end
+
+-- Highlight every player in the game (even you)
+local function highlightPlayers(localPlayer)
+    for _, player in pairs(game.Players:GetPlayers()) do
+        if player.Character then
+            createESP(player.Character, localPlayer)
+        end
+
+        player.CharacterAdded:Connect(function(character)
+            createESP(character, localPlayer)
+        end)
+    end
+end
+
+-- Main loop to re-execute highlighting
+local localPlayer = game.Players.LocalPlayer
+while true do
+    highlightPlayers(localPlayer)
+
+    -- Wait before re-executing
+    wait(20)
+
+    -- Handle resetting without flashing
+    handlePlayerReset(localPlayer)
+        print("script worky :D")
+end
+
+   end,
+})
+
+local BuildABoatTab = Window:CreateTab("Build A Boat For Treasure", nil) -- Title, Image
+local Section = BuildABoatTab:CreateSection("Build A Boat For Treasure Scripts.")
+
+local BloxFruitsTab = Window:CreateTab("Blox Fruits", nil) -- Title, Image
+local Section = BloxFruitsTab:CreateSection("Some Blox Fruits Scripts.")
+
+local ZombieAttackTab = Window:CreateTab("Zombie Attack", nil) -- Title, Image
+local Section = ZombieAttackTab:CreateSection("Zombie Attack Scripts.")
+
+local Button = BuildABoatTab:CreateButton({
+   Name = "Quartyz X Mukuro Hub",
+   Callback = function()
+        loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/BABFT")()
+   end,
+})
+
+local Button = BuildABoatTab:CreateButton({
+   Name = "Zeerox Hub",
+   Callback = function()
+        loadstring(game:HttpGet'https://raw.githubusercontent.com/RunDTM/ZeeroxHub/main/Loader.lua')()
+   end,
+})
+
+local Button = BuildABoatTab:CreateButton({
+   Name = "Crimson Hub",
+   Callback = function()
+        loadstring(game:HttpGet(('https://pastebin.com/raw/mDAp0abf'),true))()
+   end,
+})
+
+local Button = BuildABoatTab:CreateButton({
+   Name = "Ski Hub",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Yousuck780/Build-A-Boat-For-Treasure/main/Build%20A%20Boat%20For%20Treasure", true))()
+   end,
+})
+
+local Button = BuildABoatTab:CreateButton({
+   Name = "Basic AutoFarm",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Waza80/scripts-new/main/BuildABoat.lua"))()
+   end,
+})
+
+local Button = BuildABoatTab:CreateButton({
+   Name = "Neverlose UI",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Mana42138/Neverlose-UI/main/Scripts/Build%20A%20Boat.lua"))()
+   end,
+})
+
+local Button = BuildABoatTab:CreateButton({
+   Name = "Space Hub",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucasfin000/SpaceHub/main/babft"))()
+   end,
+})
+
+local Button = BloxFruitsTab:CreateButton({
+   Name = "BKHAX",
+   Callback = function()
+        loadstring(game:HttpGet(("https://raw.githubusercontent.com/koonpeatch/PeatEX/master/BKHAX/BloxFruits"),true))()
+   end,
+})
+
+local Button = MM2Tab:CreateButton({
+   Name = "Vynixu",
+   Callback = function()
+        loadstring(game:GetObjects("rbxassetid://4001118261")[1].Source)()
+   end,
+})
+
+local Button = MM2Tab:CreateButton({
+   Name = "Drifter Hub",
+   Callback = function()
+        loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Drifter0507/GUIS/main/MURDER%20MYSTERY%202", true))();
+   end,
+})
+
+local Button = MM2Tab:CreateButton({
+   Name = "MM2 Admin Panel",
+   Callback = function()
+        loadstring(game:HttpGet('https://pastebin.com/raw/e89Mn4Ec'))()
+   end,
+})
+
+local Button = MM2Tab:CreateButton({
+   Name = "R3TH PRIV",
+   Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/R3TH-PRIV/R3THPRIV/main/loader.lua'))()
+   end,
+})
+
+local Button = MM2Tab:CreateButton({
+   Name = "Nexus",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/s-o-a-b/nexus/main/loadstring"))()
+   end,
+})
+
+local Button = MM2Tab:CreateButton({
+   Name = "SnapSanix",
+   Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Roman34296589/SnapSanix-GUI-MM2/main/SnapSanix%20GUI%20mm2.lua'))()
+   end,
+})
+
+local Button = MM2Tab:CreateButton({
+    Name = "Bad ESP",
+    Callback = function()
+         -- Roblox Murder Mystery 2 ESP Script
+
+-- Function to create ESP box
+local function createESP(character, color)
+    local espBox = Instance.new("BoxHandleAdornment")
+    espBox.Size = character.HumanoidRootPart.Size + Vector3.new(0, 2, 0) -- Extend ESP to cover whole body
+    espBox.Adornee = character.HumanoidRootPart
+    espBox.AlwaysOnTop = true
+    espBox.ZIndex = 5
+    espBox.Color3 = color
+    espBox.Transparency = 0.3
+    espBox.Parent = character
+end
+
+-- Function to check role and create ESP accordingly
+local function checkRoleAndESP(player)
+    local character = player.Character
+    if not character then return end
+    
+    local role = player.Backpack:FindFirstChild("Knife") and "Murderer"
+        or player.Backpack:FindFirstChild("Gun") and "Sheriff"
+        or "Innocent"
+    local espColor = nil
+    
+    -- Assign color based on role
+    if role == "Murderer" then
+        espColor = Color3.fromRGB(255, 0, 0) -- Bright Red for Murderer
+    elseif role == "Sheriff" then
+        espColor = Color3.fromRGB(0, 0, 255) -- Bright Blue for Sheriff
+    elseif role == "Innocent" then
+        espColor = Color3.fromRGB(0, 255, 0) -- Bright Green for Innocent
+    end
+    
+    -- Create ESP box
+    if espColor then
+        createESP(character, espColor)
+    end
+end
+
+-- Loop through players and apply ESP
+for _, player in pairs(game:GetService("Players"):GetPlayers()) do
+    checkRoleAndESP(player)
+end
+
+-- Listen for new players and apply ESP
+game:GetService("Players").PlayerAdded:Connect(function(player)
+    player.CharacterAdded:Connect(function(character)
+        wait(1) -- Wait for character to fully load
+        checkRoleAndESP(player)
+    end)
+end)
+
+    end,
+ })
+
+local Button = MM2Tab:CreateButton({
+   Name = "Celestial Hub (has key)",
+   Callback = function()
+        loadstring(game:HttpGet("https://scriptblox.com/raw/Murder-Mystery-2-OP-14310"))()
+   end,
+})
+
+local Button = BladeBallTab:CreateButton({
+   Name = "Lumin Hub (has key)",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/No6No6No7yt/Lumin-Hub/main/Blade.lua"))()
+   end,
+})
+
+local Button = BloxFruitsTab:CreateButton({
+   Name = "Mlow Hub (has key)",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/SkibidiSupremacy/Loader.xyz/main/Loader.Blurk%20ST%20%3A%20G"))()
+   end,
+})
+
+local Button = MiscTab:CreateButton({
+   Name = "Rejoin Game",
+   Callback = function()
+        local Players = game:GetService("Players")
+local TeleportService = game:GetService("TeleportService")
+
+local function rejoinPlayer()
+    local player = Players.LocalPlayer
+    local gameId = game.PlaceId
+    TeleportService:Teleport(gameId, player)
+end
+
+rejoinPlayer()
+
+   end,
+})
+
+local MurdsVSSheriffsTab = Window:CreateTab("Murderers VS Sheriffs", nil) -- Title, Image
+local MainSection = MurdsVSSheriffsTab:CreateSection("Murderers VS Sheriffs Scripts.")
+
+local BSSTab = Window:CreateTab("Bee Swarm Simulator", nil) -- Title, Image
+local MainSection = BSSTab:CreateSection("Bee Swarm Simulator Scripts.")
+
+local BedWarsTab = Window:CreateTab("Bed Wars", nil) -- Title, Image
+local Section = BedWarsTab:CreateSection("Bed Wars Scripts.")
+
+local Button = BSSTab:CreateButton({
+   Name = "Vortex Hub",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Vortex3775/Vortex/main/Vortex%20hub"))()
+   end,
+})
+
+local Button = BSSTab:CreateButton({
+   Name = "Histy Hub",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptpastebin/raw/main/Histy"))()
+   end,
+})
+
+local Button = MurdsVSSheriffsTab:CreateButton({
+   Name = "HitBox Manager",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Vcsk/RobloxScripts/main/HitboxExpander.lua"))()
+   end,
+})
+
+local Button = ZombieAttackTab:CreateButton({
+   Name = "Voidz Hub",
+   Callback = function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/RTrade/Voidz/main/Games.lua'),true))()
+   end,
+})
+
+local Button = ZombieAttackTab:CreateButton({
+   Name = "Void Hub",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/VoidzyScripter/VoidHub-/main/Source%20Code"))();
+   end,
+})
+
+local Button = ZombieAttackTab:CreateButton({
+   Name = "Head Hitbox Manager",
+   Callback = function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/xSyon/ZombieAttack/main/engine.lua'),true))()
+   end,
+})
+
+local Button = BedWarsTab:CreateButton({
+   Name = "Aurora Hub",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/cocotv666/Aurora/main/Aurora_Loader"))()
+   end,
+})
+
+local Button = BedWarsTab:CreateButton({
+   Name = "CocoKiwi",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/QP-Community/Roblox/main/CoCoPaste"))()
+   end,
+})
+
+local Button = BuildABoatTab:CreateButton({
+   Name = "Unique Hub",
+   Callback = function()
+        loadstring(game:HttpGet("https://scriptblox.com/raw/Unique-Hub-(14-Gmes)_521"))()
+   end,
+})
+
+local Button = MiscTab:CreateButton({
+   Name = "Fe Yeet Gui",
+   Callback = function()
+        local lp = game:FindService("Players").LocalPlayer
+
+local function gplr(String)
+	local Found = {}
+	local strl = String:lower()
+	if strl == "all" then
+		for i,v in pairs(game:FindService("Players"):GetPlayers()) do
+			table.insert(Found,v)
+		end
+	elseif strl == "others" then
+		for i,v in pairs(game:FindService("Players"):GetPlayers()) do
+			if v.Name ~= lp.Name then
+				table.insert(Found,v)
+			end
+		end 
+	elseif strl == "me" then
+		for i,v in pairs(game:FindService("Players"):GetPlayers()) do
+			if v.Name == lp.Name then
+				table.insert(Found,v)
+			end
+		end 
+	else
+		for i,v in pairs(game:FindService("Players"):GetPlayers()) do
+			if v.Name:lower():sub(1, #String) == String:lower() then
+				table.insert(Found,v)
+			end
+		end 
+	end
+	return Found 
+end
+
+local function notif(str,dur)
+	game:FindService("StarterGui"):SetCore("SendNotification", {
+		Title = "yeet gui",
+		Text = str,
+		Icon = "rbxassetid://2005276185",
+		Duration = dur or 3
+	})
+end
+
+--// sds
+
+local h = Instance.new("ScreenGui")
+local Main = Instance.new("ImageLabel")
+local Top = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local TextBox = Instance.new("TextBox")
+local TextButton = Instance.new("TextButton")
+
+h.Name = "h"
+h.Parent = game:GetService("CoreGui")
+h.ResetOnSpawn = false
+
+Main.Name = "Main"
+Main.Parent = h
+Main.Active = true
+Main.Draggable = true
+Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.174545452, 0, 0.459574461, 0)
+Main.Size = UDim2.new(0, 454, 0, 218)
+Main.Image = "rbxassetid://2005276185"
+
+Top.Name = "Top"
+Top.Parent = Main
+Top.BackgroundColor3 = Color3.fromRGB(57, 57, 57)
+Top.BorderSizePixel = 0
+Top.Size = UDim2.new(0, 454, 0, 44)
+
+Title.Name = "Title"
+Title.Parent = Top
+Title.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0, 0, 0.295454562, 0)
+Title.Size = UDim2.new(0, 454, 0, 30)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "FE Yeet Gui (trollface edition)"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+TextBox.Parent = Main
+TextBox.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(0.0704845786, 0, 0.270642221, 0)
+TextBox.Size = UDim2.new(0, 388, 0, 62)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.PlaceholderText = "Who do i destroy(can be shortened)"
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextScaled = true
+TextBox.TextSize = 14.000
+TextBox.TextWrapped = true
+
+TextButton.Parent = Main
+TextButton.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.10352423, 0, 0.596330225, 0)
+TextButton.Size = UDim2.new(0, 359, 0, 50)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "Cheese em'"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+
+TextButton.MouseButton1Click:Connect(function()
+	local Target = gplr(TextBox.Text)
+	if Target[1] then
+		Target = Target[1]
+		
+		local Thrust = Instance.new('BodyThrust', lp.Character.HumanoidRootPart)
+		Thrust.Force = Vector3.new(9999,9999,9999)
+		Thrust.Name = "YeetForce"
+		repeat
+			lp.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame
+			Thrust.Location = Target.Character.HumanoidRootPart.Position
+			game:FindService("RunService").Heartbeat:wait()
+		until not Target.Character:FindFirstChild("Head")
+	else
+		notif("Invalid player")
+	end
+end)
+
+   end,
+})
+
+local Button = MiscTab:CreateButton({
+   Name = "Nextix Hub",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Next1x/nextixx/main/universalscripthub"))()
+   end,
+})
+
+local Button = MiscTab:CreateButton({
+   Name = "Lightux Hub",
+   Callback = function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/cool83birdcarfly02six/UNIVERSALESPLTX/main/README.md'),true))()
+   end,
+})
+
+local NDSTab = Window:CreateTab("Natural Disaster Survival", nil) -- Title, Image
+local Section = NDSTab:CreateSection("Natural Disaster Survival Scripts.")
+
+local Button = NDSTab:CreateButton({
+   Name = "Cry Hub",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/TestForCry/robloxhacks/master/natural%20disaster%20survival"))()
+   end,
+})
+
+local Button = NDSTab:CreateButton({
+   Name = "Livers Hub",
+   Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/LiverMods/Rawnder-NTDR/main/NaturalDisaster'))()
+   end,
+})
+
+local Button = NDSTab:CreateButton({
+   Name = "NDS Gui",
+   Callback = function()
+        loadstring(game:HttpGet('https://pastebin.com/raw/GzpzTGNN'))();
+   end,
+})
+
+local Button = MiscTab:CreateButton({
+   Name = "DEX Explorer",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+   end,
+})
+
+local Button = MiscTab:CreateButton({
+   Name = "SSerenade Hub",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/4xdh/SSerenadehub/main/Hub", true))()
+   end,
+})
+
+local Button = MiscTab:CreateButton({
+   Name = "Hold Right For AimLock",
+   Callback = function()
+        local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+local Camera = game.Workspace.CurrentCamera
+
+local LocalPlayer = Players.LocalPlayer
+local lockOn = false
+local targetPlayer = nil
+
+-- Function to find the closest player in front of the local player
+local function getClosestPlayer()
+    local closestPlayer = nil
+    local shortestDistance = math.huge
+    
+    for _, player in pairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("Head") then
+            local direction = (player.Character.Head.Position - LocalPlayer.Character.HumanoidRootPart.Position).unit
+            local forward = LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector
+            local dotProduct = forward:Dot(direction)
+            local distance = (player.Character.Head.Position - LocalPlayer.Character.HumanoidRootPart.Position).magnitude
+            
+            if dotProduct > 0.9 and distance < shortestDistance then
+                closestPlayer = player
+                shortestDistance = distance
+            end
+        end
+    end
+    
+    return closestPlayer
+end
+
+-- Function to update the lock-on target and camera
+local function updateLockOn()
+    if lockOn then
+        targetPlayer = getClosestPlayer()
+        if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("Head") then
+            local targetPosition = targetPlayer.Character.Head.Position
+            Camera.CFrame = CFrame.new(Camera.CFrame.Position, targetPosition)
+        end
+    end
+end
+
+-- Detect when the right mouse button is held down
+UserInputService.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton2 then
+        lockOn = true
+    end
+end)
+
+UserInputService.InputEnded:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton2 then
+        lockOn = false
+        targetPlayer = nil
+    end
+end)
+
+-- Update the camera every frame
+RunService.RenderStepped:Connect(updateLockOn)
+   end,
+})
+
+local SBTab = Window:CreateTab("Slap Battles", nil) -- Title, Image
+local MainSection = SBTab:CreateSection("Slap Battles Scripts.")
+
+local Button = SBTab:CreateButton({
+   Name = "Hub That Exists",
+   Callback = function()
+        loadstring(game:HttpGet(("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Battles")))()
+   end,
+})
+
+local Button = SBTab:CreateButton({
+   Name = "Dizzy Hub",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/dizyhvh/slap_battles_gui/main/0.lua"))()
+   end,
+})
+
+local Button = SBTab:CreateButton({
+   Name = "Giang Hub",
+   Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Giangplay/Slap_Battles/main/Slap_Battles.lua'))()
+   end,
+})
+
+local Button = SBTab:CreateButton({
+   Name = "Gaster Hub",
+   Callback = function()
+        loadstring(game:HttpGet(("https://raw.githubusercontent.com/Dusty1234567890/TestMain/main/SLAPBATTLESGUI5")))()
+   end,
+})
+
+local Button = MiscTab:CreateButton({
+   Name = "Chat Bypass",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/SkireScripts/Ouxie/main/Projects/simplebypass.lua"))()
+   end,
+})
+
+local Button = MiscTab:CreateButton({
+   Name = "Backflip and Frontflip",
+   Callback = function()
+        
+wait(5)
+
+--[[ Info ]]--
+
+local ver = "2.00"
+local scriptname = "feFlip"
+
+
+--[[ Keybinds ]]--
+
+local FrontflipKey = Enum.KeyCode.Z
+local BackflipKey = Enum.KeyCode.X
+local AirjumpKey = Enum.KeyCode.C
+
+
+--[[ Dependencies ]]--
+
+local ca = game:GetService("ContextActionService")
+local zeezy = game:GetService("Players").LocalPlayer
+local h = 0.0174533
+local antigrav
+
+
+--[[ Functions ]]--
+
+function zeezyFrontflip(act,inp,obj)
+	if inp == Enum.UserInputState.Begin then
+		zeezy.Character.Humanoid:ChangeState("Jumping")
+		wait()
+		zeezy.Character.Humanoid.Sit = true
+		for i = 1,360 do 
+			delay(i/720,function()
+			zeezy.Character.Humanoid.Sit = true
+				zeezy.Character.HumanoidRootPart.CFrame = zeezy.Character.HumanoidRootPart.CFrame * CFrame.Angles(-h,0,0)
+			end)
+		end
+		wait(0.55)
+		zeezy.Character.Humanoid.Sit = false
+	end
+end
+
+function zeezyBackflip(act,inp,obj)
+	if inp == Enum.UserInputState.Begin then
+		zeezy.Character.Humanoid:ChangeState("Jumping")
+		wait()
+		zeezy.Character.Humanoid.Sit = true
+		for i = 1,360 do
+			delay(i/720,function()
+			zeezy.Character.Humanoid.Sit = true
+				zeezy.Character.HumanoidRootPart.CFrame = zeezy.Character.HumanoidRootPart.CFrame * CFrame.Angles(h,0,0)
+			end)
+		end
+		wait(0.55)
+		zeezy.Character.Humanoid.Sit = false
+	end
+end
+
+function zeezyAirjump(act,inp,obj)
+	if inp == Enum.UserInputState.Begin then
+		zeezy.Character:FindFirstChildOfClass'Humanoid':ChangeState("Seated")
+		wait()
+		zeezy.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")	
+	end
+end
+
+
+--[[ Binds ]]--
+
+ca:BindAction("zeezyFrontflip",zeezyFrontflip,false,FrontflipKey)
+ca:BindAction("zeezyBackflip",zeezyBackflip,false,BackflipKey)
+ca:BindAction("zeezyAirjump",zeezyAirjump,false,AirjumpKey)
+
+--[[ Load Message ]]--
+
+print(scriptname .. " " .. ver .. " loaded successfully")
+print("made by Zeezy#7203")
+
+local notifSound = Instance.new("Sound",workspace)
+notifSound.PlaybackSpeed = 1.5
+notifSound.Volume = 0.15
+notifSound.SoundId = "rbxassetid://170765130"
+notifSound.PlayOnRemove = true
+notifSound:Destroy()
+game.StarterGui:SetCore("SendNotification", {Title = "feFlip", Text = "feFlip loaded successfully!", Icon = "rbxassetid://505845268", Duration = 5, Button1 = "Okay"})
+   end,
+})
+
+local Button = MiscTab:CreateButton({
+   Name = "Chat Bypass",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/SkireScripts/Ouxie/main/Projects/simplebypass.lua"))()
+   end,
+})
+
+local Button = MiscTab:CreateButton({
+   Name = "Littens Animation GUI",
+   Callback = function()
+        save = nil
+c3 = function(r,g,b) return Color3.new(r/255,g/255,b/255) end
+ 
+--do something ro get save file
+ 
+if not save then
+    save = {
+        ui = {
+            highlightcolor = c3(33, 122, 255);
+            errorcolor = c3(255, 0, 0);
+            --AnimationPriority colors
+            core = c3(65, 65, 65);
+            idle = c3(134, 200, 230);
+            movement = c3(114, 230, 121);
+            action = c3(235, 235, 235);
+        };
+        preferences = {
+            
+        };
+        custom_animations = {
+            template = {
+                Title = "";
+                AnimationId = "rbxassetid://";
+                Image = "rbxassetid://2151539455"; --not required
+                Speed = 1;
+                Time = 0;
+                Weight = 1;
+                Loop = false;
+                R6 = true;
+                Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+            };
+        };
+    }
+end
+ 
+lp = game:GetService("Players").LocalPlayer
+m = lp:GetMouse()
+ 
+function getHumanoid()
+    if not lp.Character then return nil end
+    return lp.Character:FindFirstChildWhichIsA("Humanoid")
+end
+ 
+screengui = game:GetObjects("rbxassetid://02159099015")[1]
+screengui.Parent = game:GetService("CoreGui")
+main = screengui.Topbar.Main
+ 
+mainframe = main.MainFrame
+scrollframe = mainframe.ScrollingFrame
+items = scrollframe.Items
+search = scrollframe.SearchFrame.Search
+searchbutton = scrollframe.SearchFrame.ImageLabel.TextButton
+searchframe = scrollframe.SearchFrame
+ 
+preview = main.Preview
+previewimage = preview.Image
+previewtitle = preview.Title
+previewdesc = preview.Desc
+ 
+function draggable(gObj)
+    local UserInputService = game:GetService("UserInputService")
+ 
+    local gui = gObj
+    
+    local dragging
+    local dragInput
+    local dragStart
+    local startPos
+    
+    local function update(input)
+        local delta = input.Position - dragStart
+        gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    end
+    
+    gui.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            dragStart = input.Position
+            startPos = gui.Position
+            
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                end
+            end)
+        end
+    end)
+    
+    gui.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            dragInput = input
+        end
+    end)
+    
+    UserInputService.InputChanged:Connect(function(input)
+        if input == dragInput and dragging then
+            update(input)
+        end
+    end)
+end
+function tween(object,style,direction,t,goal)
+    local tweenservice = game:GetService("TweenService")
+    local tweenInfo = TweenInfo.new(t,Enum.EasingStyle[style],Enum.EasingDirection[direction])
+    local tween = tweenservice:Create(object,tweenInfo,goal)
+    tween:Play()
+    return tween
+end
+ 
+draggable(screengui.Topbar)
+ 
+function checkIfStudio()
+    return game.Name ~= "Game"
+end
+ 
+if not checkIfStudio() then
+    print'Client is not in Roblox studio'
+    --main.Size = UDim2.new(0.398, 0, 0.477, 0)
+end
+ 
+search.Changed:connect(function(p)
+    local n = 0
+    for i,v in pairs (items:GetChildren()) do
+        if v:IsA("TextButton") and not string.find(v.Title.Text:lower(), search.Text:lower()) then
+            v.Visible = false
+        elseif v:IsA("TextButton") and string.find(v.Title.Text:lower(), search.Text:lower()) then
+            v.Visible = true
+            n = n + 1
+        end
+    end
+    if p == "Text" then
+        if n > 0 then
+            tween(searchframe, "Sine", "Out", 0.25, {
+                BorderColor3 = save.ui.highlightcolor;
+            })
+            wait(0.25)
+            tween(searchframe, "Sine", "In", 0.5, {
+                BorderColor3 = c3(58, 58, 58);
+            })
+        else
+            tween(searchframe, "Sine", "Out", 0.25, {
+                BorderColor3 = save.ui.errorcolor;
+            })
+            wait(0.25)
+            tween(searchframe, "Sine", "In", 0.5, {
+                BorderColor3 = c3(58, 58, 58);
+            })
+        end
+    end
+end)
+ 
+spawn(function()
+    while wait(10) do
+        --auto-save every 10 seconds
+    end
+end)
+ 
+cam = workspace.CurrentCamera
+ 
+running = {}
+popAnims = {
+    armturbine = {
+        Title = "Arm Turbine";
+        AnimationId = "rbxassetid://259438880";
+        Speed = 1.5;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    weirdsway = {
+        Title = "Weird Sway";
+        AnimationId = "rbxassetid://248336677";
+        Speed = 1;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    weirdfloat = {
+        Title = "Weird Float";
+        AnimationId = "rbxassetid://248336459";
+        Speed = 1;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    weirdpose = {
+        Title = "Weird Pose";
+        AnimationId = "rbxassetid://248336163";
+        Speed = 1;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    penguinslide = {
+        Title = "Penguin Slide";
+        AnimationId = "rbxassetid://282574440";
+        Speed = 1;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    scream = {
+        Title = "Scream";
+        AnimationId = "rbxassetid://180611870";
+        Speed = 1.5;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    crouch = {
+        Title = "Crouch";
+        AnimationId = "rbxassetid://182724289";
+        Speed = 1;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    happydance = {
+        Title = "Happy Dance";
+        AnimationId = "rbxassetid://248335946";
+        Speed = 1;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    floatinghead = {
+        Title = "Floating Head";
+        AnimationId = "rbxassetid://121572214";
+        Speed = 1;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    balloonfloat = {
+        Title = "Balloon Float";
+        AnimationId = "rbxassetid://148840371";
+        Speed = 1;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    pinchnose = {
+        Title = "Pinch Nose";
+        AnimationId = "rbxassetid://30235165";
+        Speed = 1;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    goal = {
+        Title = "Goal!";
+        AnimationId = "rbxassetid://28488254";
+        Speed = 1;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    cry = {
+        Title = "Cry";
+        AnimationId = "rbxassetid://180612465";
+        Speed = 0;
+        Time = 1.5;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    partytime = {
+        Title = "Party Time";
+        AnimationId = "rbxassetid://33796059";
+        Speed = 1;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    moondance = {
+        Title = "Moon Dance";
+        AnimationId = "rbxassetid://27789359";
+        Speed = 1;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    insanelegs = {
+        Title = "Insane Legs";
+        AnimationId = "rbxassetid://87986341";
+        Speed = 99;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    rotation = {
+        Title = "Rotation";
+        AnimationId = "rbxassetid://136801964";
+        Speed = 1;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    insanerotation = {
+        Title = "Insane Rotation";
+        AnimationId = "rbxassetid://136801964";
+        Speed = 99;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    roar = {
+        Title = "Roar";
+        AnimationId = "rbxassetid://163209885";
+        Speed = 1;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    spin = {
+        Title = "Spin";
+        AnimationId = "rbxassetid://188632011";
+        Speed = 1;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    zombiearms = {
+        Title = "Zombie Arms";
+        AnimationId = "rbxassetid://183294396";
+        Speed = 0;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    insane = {
+        Title = "Insane";
+        AnimationId = "rbxassetid://33796059";
+        Speed = 99;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    neckbreak = {
+        Title = "Neck Break";
+        AnimationId = "rbxassetid://35154961";
+        Speed = 0;
+        Time = 2;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    headdetach = {
+        Title = "Head Detach";
+        AnimationId = "rbxassetid://35154961";
+        Speed = 0;
+        Time = 3;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    idle = {
+        Title = "Idle";
+        AnimationId = "rbxassetid://180435571";
+        Speed = 1;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+    charleston = {
+        Title = "Charleston";
+        AnimationId = "rbxassetid://429703734";
+        Speed = 1;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+}
+robloxOwns = {}
+ 
+ownerOwns = {}
+ 
+customAnims = {}
+ 
+function getOwnedAnimations(userid)
+    local httpserv = game:GetService("HttpService")
+    local owned = httpserv:GetAsync("https://inventory.roblox.com/v1/users/"..userid.."/inventory/Animation?pageNumber=1&itemsPerPage=10", true)
+    return owned
+end
+ 
+ 
+function getAnim(name)
+    return popAnims[name] or customAnims[name]
+end
+function runAnim(info, humanoid)
+    local animation = Instance.new("Animation")
+    animation.AnimationId = info.AnimationId
+    
+    local animtrack = humanoid:LoadAnimation(animation)
+    table.insert(running,animtrack)
+    animtrack.Priority = info.Priority
+    animtrack.Looped = info.Loop
+    
+    animtrack:Play()
+    animtrack:AdjustSpeed(info.Speed)
+    animtrack:AdjustWeight(info.Weight)
+    animtrack.TimePosition = info.Time
+    
+    animtrack.Stopped:connect(function()
+        for i = 1,#running do
+            if running[i] == animtrack then
+                table.remove(running,i)
+            end
+        end
+    end)
+    
+    return animtrack
+end
+ 
+template = items.Template
+template.Parent = nil
+ 
+function clear()
+    for i,v in pairs (items:GetChildren()) do
+        if v:IsA("TextButton") then
+            v:Destroy()
+        end
+    end
+end
+ 
+--[[
+    idle = {
+        Title = "Idle";
+        AnimationId = "rbxassetid://180435571";
+        Speed = 1;
+        Time = 0;
+        Weight = 1;
+        Loop = true;
+        R6 = true;
+        Priority = 2; --0, 1, 2, and 1000 are acceptable priorities
+    };
+--]]
+ 
+function createbutton(v)
+    local temp = template:Clone()
+    temp.Parent = items
+    temp.Name = v.Title
+    temp.Title.Text = v.Title
+    temp.Image.Image = v.Image or "rbxassetid://2151539455"
+    if temp.Image.Image == "rbxassetid://2151539455" then
+        temp.Image.ImageColor3 = (v.Priority == 0 and save.ui.idle) or (v.Priority == 1 and save.ui.movement) or (v.Priority == 2 and save.ui.action) or (v.Priority == 1000 and save.ui.core)
+    else
+        temp.Image.ImageColor3 = Color3.new(1,1,1)
+    end
+    temp.LayoutOrder = math.random(1,10000)
+    
+    temp.Settings.AnimationId.Value = v.AnimationId
+    temp.Settings.Loop.Value = v.Loop
+    temp.Settings.Priority.Value = v.Priority
+    temp.Settings.R6.Value = v.R6
+    temp.Settings.Speed.Value = v.Speed
+    temp.Settings.Weight.Value = v.Weight
+    temp.Settings.Time.Value = v.Time
+    
+    temp.MouseEnter:connect(function()
+        preview.Title.Text = v.Title
+        preview.Desc.Text = "Speed: "..tostring(v.Speed).."\nPriority: "..tostring(v.Priority).."\nR6 Rig: "..tostring(v.R6).."\nAnimID: "..tostring(v.AnimationId).."\n\n"..(v.Description or "No description provided")
+        
+        preview.Image.Image = v.Image or "rbxassetid://2151539455"
+        if preview.Image.Image == "rbxassetid://2151539455" then
+            preview.Image.ImageColor3 = (v.Priority == 0 and save.ui.idle) or (v.Priority == 1 and save.ui.movement) or (v.Priority == 2 and save.ui.action) or (v.Priority == 1000 and save.ui.core)
+        else
+            preview.Image.ImageColor3 = Color3.new(1,1,1)
+        end
+    end)
+    temp.MouseButton1Click:connect(function()
+        temp.Border.ImageColor3 = save.ui.highlightcolor
+        for i,anim in pairs (running) do
+            if anim.Animation.AnimationId == v.AnimationId then
+                anim:Stop()
+                return
+            end
+        end
+        temp.Border.Visible = true
+        local rAnim = runAnim(v, getHumanoid())
+        rAnim.Stopped:connect(function()
+            temp.Border.Visible = false
+        end)
+    end)
+    
+    return temp
+end
+ 
+dropdown = mainframe.ScrollingFrame.DropdownFrame
+elements = dropdown.HoldContentsFrame.Frame.Elements
+dropdownenabled = true
+ 
+tween(dropdown.HoldContentsFrame.Frame, "Linear", "In", 0, {
+    Position = UDim2.new(0,0,-1,0)
+})
+dropdown.HoldContentsFrame.Frame.Visible = false
+ 
+dropdowndeactivate = screengui.DropdownDeactivate
+dropdowndeactivate.Visible = false
+ 
+function hideddown()
+    tween(dropdown.HoldContentsFrame.Frame, "Linear", "In", 0, {
+        Position = UDim2.new(0,0,-1,0)
+    })
+    dropdown.HoldContentsFrame.Frame.Visible = false
+    dropdowndeactivate.Visible = false
+    dropdownenabled = true
+    
+    for i,e in pairs (elements:GetChildren()) do
+        if e:IsA("TextButton") then
+            e.BackgroundColor3 = c3(46,46,46)
+        end
+    end
+end
+ 
+dropdown.MouseButton1Click:connect(function()
+    print'ddownclick'
+    dropdownenabled = not dropdownenabled
+    if dropdownenabled then
+        hideddown()
+    else
+        tween(dropdown.HoldContentsFrame.Frame, "Linear", "In", 0.3, {
+            Position = UDim2.new(0,0,0,0)
+        })
+        dropdown.HoldContentsFrame.Frame.Visible = true
+        dropdowndeactivate.Visible = true
+    end
+end)
+ 
+dropdowndeactivate.MouseButton1Down:connect(function()
+    hideddown()
+end)
+ 
+for i,v in pairs (elements:GetChildren()) do
+    if v:IsA("TextButton") then
+        v.MouseEnter:connect(function()
+            for i,e in pairs (elements:GetChildren()) do
+                if e:IsA("TextButton") then
+                    e.BackgroundColor3 = c3(46,46,46)
+                end
+            end
+            v.BackgroundColor3 = save.ui.highlightcolor
+        end)
+        v.MouseButton1Click:connect(function()
+            hideddown()
+            dropdown.TextLabel.Text = v.Name
+            sort(v.Name)
+        end)
+    end
+end
+ 
+function sort(category)
+    clear()
+    if category == "Popular" then
+        for i,v in pairs (popAnims) do
+            local temp = createbutton(v)
+        end
+    elseif category == "By Roblox" then
+        
+    end
+end
+ 
+game:GetService('RunService').RenderStepped:connect(function()
+    items.Parent.CanvasSize = UDim2.new(0,0,0,items.GridLayout.AbsoluteContentSize.Y + 50)
+end)
+ 
+sort("Popular")
+   end,
+})
+
+local Button = MiscTab:CreateButton({
+   Name = "Nameless Admin",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))();
+   end,
+})
+
+local Button = MiscTab:CreateButton({
+   Name = "Equinox Hub",
+   Callback = function()
+        loadstring(game:HttpGet(('https://pastebin.com/raw/wzB1Qh78'),true))()
+   end,
+})
+
+local DoorsTab = Window:CreateTab("Doors", nil) -- Title, Image
+local MainSection = DoorsTab:CreateSection("Doors Scripts.")
+
+local Button = DoorsTab:CreateButton({
+   Name = "FFJ Hub",
+   Callback = function()
+        loadstring(game:HttpGet('https://rawscripts.net/raw/DOORS-FFJ-Hub-11365'))()
+   end,
+})
+
+local Button = DoorsTab:CreateButton({
+   Name = "Doors Hub",
+   Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/M4mpGErb",true))()
+   end,
+})
+
+local TSBTab = Window:CreateTab("TSB", nil) -- Title, Image
+local MainSection = TSBTab:CreateSection("The Strongest Battlegrounds Scripts. (PLEASE USE AN ALT, OR YOU WILL GET BANNED.)")
+
+local Button = TSBTab:CreateButton({
+   Name = "Twi-Ware",
+   Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/1emcuiFz/raw",true))()
+   end,
+})
+
+local Button = TSBTab:CreateButton({
+   Name = "Aquarius Hub",
+   Callback = function()
+        loadstring(game:HttpGet("https://rentry.org/aquarius-hub/raw"))()
+   end,
+})
+
+local Button = TSBTab:CreateButton({
+   Name = "Ray Makk Hub",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/JayXSama/ray-makk/main/The%20Strongest%20Battlegrounds"))()
+   end,
+})
+
+local Button = TSBTab:CreateButton({
+   Name = "Kade Hub",
+   Callback = function()
+        getgenv().DisableWarning = true
+getgenv().AutoReport = true
+loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/KadeHubRepository/main/Latest.lua"))()
+   end,
+})
+
+local Button = TSBTab:CreateButton({
+   Name = "Nobulem Hub",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/NBLMSCRIPTS/NBLMSCRIPTHUB/main/SKIBIDI"))()
+   end,
+})
+
+local Button = TSBTab:CreateButton({
+   Name = "Teleport Buttons",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Vortex3775/stupid/main/stupid"))()
+   end,
+})
